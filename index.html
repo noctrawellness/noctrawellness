@@ -1,1223 +1,1043 @@
+html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Noctra Wellness — The Science Behind Your Cravings</title>
+  <title>Noctra Wellness | Understand Your Cravings</title>
+  <meta name="description" content="Noctra Wellness helps you understand the patterns behind sugar cravings and build practical habits that fit real life.">
 
-  <meta
-    name="description"
-    content="Understand what's behind your sugar cravings and get a simple daily tool to help you recognize your patterns."
-  >
-
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Caveat:wght@400;500;600;700&family=Figtree:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-
     :root {
-      --paper:#F7F1E5;
-      --ink:#2B2433;
-      --yellow:#FFE27A;
-      --coral:#FF8A73;
-      --mint:#B8EAD3;
-      --lav:#CFC3F5;
-      --blue:#BFE0F5;
+      --cream: #f7f7f3;
+      --white: #ffffff;
+      --ink: #17211d;
+      --muted: #68736e;
+      --green: #23483b;
+      --green-light: #dce9e2;
+      --line: #dfe4e0;
+      --soft: #eef2ef;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html {
-      scroll-behavior:smooth;
+      scroll-behavior: smooth;
     }
 
     body {
-      background:var(--paper);
-      color:var(--ink);
-      font-family:'Figtree', sans-serif;
-      overflow-x:hidden;
+      font-family: "DM Sans", sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.6;
     }
 
-    .display {
-      font-family:'Bricolage Grotesque', sans-serif;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    .hand {
-      font-family:'Caveat', cursive;
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
     }
 
-    .card {
-      border:2px solid var(--ink);
-      border-radius:24px;
-      box-shadow:6px 6px 0 var(--ink);
+    /* NAVIGATION */
+
+    nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      background: rgba(247,247,243,.95);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
     }
 
-    .btn {
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border:2px solid var(--ink);
-      border-radius:999px;
-      padding:14px 22px;
-      font-weight:700;
-      transition:all .2s ease;
-      box-shadow:4px 4px 0 var(--ink);
-      cursor:pointer;
+    .logo {
+      font-family: "Manrope", sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
     }
 
-    .btn:hover {
-      transform:translate(2px,2px);
-      box-shadow:2px 2px 0 var(--ink);
+    .logo span {
+      color: #607c70;
     }
 
-    .note {
-      border:2px solid var(--ink);
-      padding:18px;
-      border-radius:8px;
-      box-shadow:4px 4px 0 rgba(43,36,51,.2);
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      font-size: 14px;
+      color: var(--muted);
     }
 
-    .paper-noise {
-      background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.055'/%3E%3C/svg%3E");
+    .nav-links a:hover {
+      color: var(--ink);
     }
 
-    .rise {
-      animation:rise .7s ease both;
+    .nav-button {
+      background: var(--green);
+      color: white !important;
+      padding: 11px 18px;
+      border-radius: 7px;
+      font-weight: 600;
     }
 
-    .bob {
-      animation:bob 4s ease-in-out infinite;
+    /* HERO */
+
+    .hero {
+      padding: 105px 0 95px;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(220,233,226,.8), transparent 30%),
+        var(--cream);
     }
 
-    @keyframes rise {
-      from {
-        opacity:0;
-        transform:translateY(20px);
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: #557266;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(48px, 6vw, 76px);
+      line-height: 1.02;
+      letter-spacing: -3.5px;
+      max-width: 700px;
+      margin-bottom: 27px;
+    }
+
+    .hero h1 span {
+      color: var(--green);
+    }
+
+    .hero-text {
+      font-size: 19px;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 610px;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .primary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--green);
+      color: white;
+      padding: 15px 24px;
+      border-radius: 7px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: .2s ease;
+    }
+
+    .primary-button:hover {
+      transform: translateY(-2px);
+      background: #18382e;
+    }
+
+    .secondary-button {
+      padding: 15px 20px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 42px;
+      box-shadow: 0 25px 70px rgba(30,50,42,.08);
+    }
+
+    .card-label {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      color: #708078;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-card h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 29px;
+      line-height: 1.2;
+      margin-bottom: 25px;
+    }
+
+    .trigger {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-top: 1px solid var(--line);
+      font-size: 15px;
+    }
+
+    .trigger:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .trigger span:last-child {
+      color: #73817b;
+      font-size: 13px;
+    }
+
+    /* TRUST */
+
+    .trust {
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 25px 0;
+    }
+
+    .trust-content {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      color: #68736e;
+      font-size: 14px;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 105px 0;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 55px;
+    }
+
+    .section-heading h2 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(34px, 4vw, 50px);
+      line-height: 1.1;
+      letter-spacing: -2px;
+      margin-bottom: 18px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    /* PROBLEM */
+
+    .problem {
+      background: var(--white);
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .problem-card {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fbfcfb;
+    }
+
+    .problem-card strong {
+      display: block;
+      font-family: "Manrope", sans-serif;
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    .problem-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* APPROACH */
+
+    .approach {
+      background: var(--cream);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .step {
+      border-top: 2px solid var(--green);
+      padding-top: 23px;
+    }
+
+    .step-number {
+      color: #71847b;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
+
+    .step h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* FREE TOOL */
+
+    .reset {
+      background: var(--green);
+      color: white;
+    }
+
+    .reset-grid {
+      display: grid;
+      grid-template-columns: 1fr .8fr;
+      gap: 90px;
+      align-items: center;
+    }
+
+    .reset .eyebrow {
+      color: #b9d1c5;
+    }
+
+    .reset h2 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(38px, 4vw, 55px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+
+    .reset p {
+      color: #d3dfda;
+      font-size: 17px;
+      max-width: 600px;
+      margin-bottom: 28px;
+    }
+
+    .reset-list {
+      list-style: none;
+      margin-top: 25px;
+    }
+
+    .reset-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,.15);
+      color: #e2ebe7;
+    }
+
+    .reset-list li::before {
+      content: "✓";
+      margin-right: 12px;
+      color: #b9d1c5;
+      font-weight: bold;
+    }
+
+    .form-card {
+      background: white;
+      color: var(--ink);
+      padding: 32px;
+      border-radius: 14px;
+    }
+
+    .form-card h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .form-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .form-group {
+      margin-bottom: 13px;
+    }
+
+    .form-group input {
+      width: 100%;
+      border: 1px solid var(--line);
+      padding: 14px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .form-group input:focus {
+      border-color: #799387;
+    }
+
+    .form-button {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      background: var(--green);
+      color: white;
+      padding: 14px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .privacy {
+      font-size: 11px !important;
+      margin-top: 12px;
+      margin-bottom: 0 !important;
+      color: #89938f !important;
+    }
+
+    /* WHY */
+
+    .why {
+      background: var(--white);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .why-card {
+      padding: 32px;
+      background: var(--soft);
+      border-radius: 12px;
+    }
+
+    .why-card h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .why-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* CONTENT */
+
+    .content {
+      background: var(--cream);
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .article {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 28px;
+    }
+
+    .article-tag {
+      color: #688077;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 16px;
+    }
+
+    .article h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 21px;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .article p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* FINAL CTA */
+
+    .final {
+      text-align: center;
+      background: var(--white);
+      padding: 120px 0;
+    }
+
+    .final h2 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(40px, 5vw, 62px);
+      letter-spacing: -2.5px;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .final p {
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 30px;
+      font-size: 17px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #17211d;
+      color: #d7dfdb;
+      padding: 55px 0 30px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 50px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    .footer-logo {
+      font-family: "Manrope", sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .footer-description {
+      color: #9daaa4;
+      font-size: 13px;
+      max-width: 350px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 25px;
+      font-size: 13px;
+      color: #aab5b0;
+    }
+
+    .footer-bottom {
+      padding-top: 25px;
+      color: #87928d;
+      font-size: 11px;
+      line-height: 1.7;
+      max-width: 850px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+      .nav-links a:not(.nav-button) {
+        display: none;
       }
 
-      to {
-        opacity:1;
-        transform:translateY(0);
+      .hero {
+        padding: 75px 0;
+      }
+
+      .hero-grid,
+      .reset-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .problem-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .steps,
+      .why-grid,
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .footer-top {
+        flex-direction: column;
       }
     }
 
-    @keyframes bob {
-      0%,100% {
-        transform:translateY(0) rotate(-2deg);
+    @media (max-width: 520px) {
+      h1 {
+        font-size: 48px;
+        letter-spacing: -2.5px;
       }
 
-      50% {
-        transform:translateY(-8px) rotate(2deg);
+      .problem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        padding: 28px;
+      }
+
+      .form-card {
+        padding: 24px;
       }
     }
-
-    .reveal {
-      opacity:0;
-      transform:translateY(20px);
-      transition:all .7s ease;
-    }
-
-    .reveal.show {
-      opacity:1;
-      transform:translateY(0);
-    }
-
-    input {
-      font-family:'Figtree', sans-serif;
-    }
-
-    input:focus {
-      outline:none;
-      box-shadow:0 0 0 4px var(--yellow);
-    }
-
   </style>
 </head>
 
+<body>
 
-<body class="paper-noise">
+  <!-- NAVIGATION -->
 
+  <nav>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+      <a href="#" class="logo">NOCTRA<span>.</span></a>
 
-<!-- ========================================================= -->
-<!-- NAVIGATION -->
-<!-- ========================================================= -->
-
-<nav class="w-full px-6 md:px-10 py-5">
-
-  <div class="max-w-7xl mx-auto flex items-center justify-between">
-
-    <a href="#" class="flex items-center gap-3">
-
-      <div
-        class="w-10 h-10 rounded-full bg-[var(--yellow)] border-2 border-[var(--ink)] flex items-center justify-center font-bold"
-      >
-        N
+      <div class="nav-links">
+        <a href="#approach">How It Works</a>
+        <a href="#why">Why Noctra</a>
+        <a href="#reset" class="nav-button">Free Reset</a>
       </div>
-
-      <span class="display font-bold text-xl">
-        Noctra Wellness
-      </span>
-
-    </a>
-
-
-    <a href="#request" class="btn bg-[var(--yellow)] text-sm">
-      GET THE FREE RESET
-    </a>
-
-  </div>
-
-</nav>
-
-
-
-<!-- ========================================================= -->
-<!-- HERO -->
-<!-- ========================================================= -->
-
-<section class="px-6 md:px-10 pt-12 pb-24">
-
-  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
-
-
-    <div class="rise">
-
-      <p class="font-bold tracking-widest text-sm mb-5">
-        NOCTRA WELLNESS
-      </p>
-
-
-      <h1 class="display text-5xl md:text-7xl font-bold leading-[.95]">
-
-        Your cravings
-        <span class="relative inline-block">
-
-          aren't random.
-
-          <span
-            class="absolute left-0 bottom-1 w-full h-3 bg-[var(--coral)] -z-10 rotate-[-2deg]"
-          ></span>
-
-        </span>
-
-      </h1>
-
-
-      <p class="text-xl md:text-2xl mt-7 max-w-xl leading-relaxed">
-
-        Understand what's behind your sugar cravings—and learn practical ways
-        to respond differently.
-
-      </p>
-
-
-      <div class="flex flex-wrap gap-3 mt-7">
-
-        <span class="note bg-[var(--yellow)]">
-          Stress
-        </span>
-
-        <span class="note bg-[var(--coral)]">
-          Tiredness
-        </span>
-
-        <span class="note bg-[var(--mint)]">
-          Boredom
-        </span>
-
-        <span class="note bg-[var(--lav)]">
-          Emotions
-        </span>
-
-        <span class="note bg-[var(--blue)]">
-          Habits
-        </span>
-
-        <span class="note bg-white">
-          Nighttime
-        </span>
-
-      </div>
-
-
-      <p class="mt-7 max-w-xl text-lg leading-relaxed">
-
-        Your cravings can be influenced by more than hunger.
-        Noctra helps you understand the patterns behind them so you can make
-        more intentional choices.
-
-      </p>
-
-
-      <div class="flex flex-wrap gap-4 mt-8">
-
-        <a
-          href="#request"
-          class="btn bg-[var(--ink)] text-[var(--paper)]"
-        >
-          GET THE FREE RESET
-        </a>
-
-        <a
-          href="#how"
-          class="font-bold flex items-center"
-        >
-          Learn how Noctra works ↓
-        </a>
-
-      </div>
-
     </div>
+  </nav>
 
 
+  <!-- HERO -->
 
-    <!-- HERO VISUAL -->
-
-    <div class="relative min-h-[430px] flex items-center justify-center">
-
-      <div
-        class="absolute w-64 h-64 md:w-80 md:h-80 rounded-full bg-[var(--yellow)] border-2 border-[var(--ink)]"
-      ></div>
-
-
-      <div class="relative z-10 text-center">
-
-        <div class="text-8xl md:text-9xl bob">
-          🧠
-        </div>
-
-
-        <div
-          class="note bg-[var(--coral)] absolute -top-5 -right-24 rotate-6"
-        >
-
-          <span class="hand text-3xl">
-            Why am I craving this?
-          </span>
-
-        </div>
-
-
-        <div
-          class="note bg-[var(--mint)] absolute -bottom-12 -left-20 -rotate-6"
-        >
-
-          <span class="hand text-3xl">
-            There's a pattern.
-          </span>
-
-        </div>
-
-
-        <div
-          class="note bg-white absolute top-28 -left-28 rotate-3"
-        >
-          🍪
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ========================================================= -->
-<!-- PROBLEM -->
-<!-- ========================================================= -->
-
-<section class="px-6 md:px-10 py-24 bg-white/50">
-
-  <div class="max-w-7xl mx-auto">
-
-
-    <div class="max-w-3xl reveal">
-
-      <p class="font-bold tracking-widest text-sm">
-        THE QUESTION
-      </p>
-
-
-      <h2 class="display text-4xl md:text-6xl font-bold mt-3">
-
-        Ever wonder,
-
-        <span class="hand text-5xl md:text-7xl">
-          “Why do I want sugar right now?”
-        </span>
-
-      </h2>
-
-
-      <p class="text-xl mt-6 leading-relaxed">
-
-        Sometimes the craving shows up when you're stressed.
-        Sometimes you're exhausted.
-        Sometimes you're bored—or it's simply become part of the routine.
-
-      </p>
-
-    </div>
-
-
-
-    <div class="grid md:grid-cols-4 gap-6 mt-12">
-
-
-      <div class="card bg-[var(--coral)] p-7 reveal">
-
-        <div class="text-4xl">
-          😣
-        </div>
-
-        <h3 class="display text-2xl font-bold mt-5">
-          STRESSED
-        </h3>
-
-        <p class="mt-3">
-          A stressful day can make a familiar reward feel especially appealing.
-        </p>
-
-      </div>
-
-
-
-      <div class="card bg-[var(--blue)] p-7 reveal">
-
-        <div class="text-4xl">
-          🥱
-        </div>
-
-        <h3 class="display text-2xl font-bold mt-5">
-          TIRED
-        </h3>
-
-        <p class="mt-3">
-          When you're running low on energy, quick and familiar foods can become tempting.
-        </p>
-
-      </div>
-
-
-
-      <div class="card bg-[var(--lav)] p-7 reveal">
-
-        <div class="text-4xl">
-          😐
-        </div>
-
-        <h3 class="display text-2xl font-bold mt-5">
-          BORED
-        </h3>
-
-        <p class="mt-3">
-          Sometimes eating becomes something to do rather than something your body needs.
-        </p>
-
-      </div>
-
-
-
-      <div class="card bg-[var(--yellow)] p-7 reveal">
-
-        <div class="text-4xl">
-          🔁
-        </div>
-
-        <h3 class="display text-2xl font-bold mt-5">
-          HABIT
-        </h3>
-
-        <p class="mt-3">
-          Repeated routines can make a craving feel automatic.
-        </p>
-
-      </div>
-
-    </div>
-
-
-
-    <div class="text-center mt-14">
-
-      <p class="hand text-4xl">
-        The first step isn't more willpower.
-      </p>
-
-      <p class="text-xl font-bold mt-2">
-        It's understanding the pattern.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ========================================================= -->
-<!-- HOW NOCTRA WORKS -->
-<!-- ========================================================= -->
-
-<section id="how" class="px-6 md:px-10 py-24">
-
-  <div class="max-w-7xl mx-auto">
-
-
-    <div class="text-center max-w-3xl mx-auto reveal">
-
-      <p class="font-bold tracking-widest text-sm">
-        THE NOCTRA APPROACH
-      </p>
-
-
-      <h2 class="display text-4xl md:text-6xl font-bold mt-3">
-
-        We focus on the
-
-        <span class="hand text-5xl md:text-7xl">
-          WHY
-        </span>
-
-        behind the craving.
-
-      </h2>
-
-    </div>
-
-
-
-    <div class="grid md:grid-cols-3 gap-8 mt-14">
-
-
-      <div class="card bg-[var(--yellow)] p-8 reveal">
-
-        <div class="text-5xl">
-          🔎
-        </div>
-
-        <h3 class="display text-3xl font-bold mt-5">
-          UNDERSTAND
-        </h3>
-
-        <p class="mt-4 text-lg leading-relaxed">
-
-          Learn how stress, tiredness, emotions, routines, environment,
-          and habits can influence cravings.
-
-        </p>
-
-      </div>
-
-
-
-      <div class="card bg-[var(--mint)] p-8 reveal">
-
-        <div class="text-5xl">
-          🧩
-        </div>
-
-        <h3 class="display text-3xl font-bold mt-5">
-          RECOGNIZE
-        </h3>
-
-        <p class="mt-4 text-lg leading-relaxed">
-
-          Notice the situations and patterns that tend to appear before
-          your cravings.
-
-        </p>
-
-      </div>
-
-
-
-      <div class="card bg-[var(--lav)] p-8 reveal">
-
-        <div class="text-5xl">
-          🌱
-        </div>
-
-        <h3 class="display text-3xl font-bold mt-5">
-          RESPOND
-        </h3>
-
-        <p class="mt-4 text-lg leading-relaxed">
-
-          Use practical strategies to create more intentional responses
-          instead of relying on restriction.
-
-        </p>
-
-      </div>
-
-    </div>
-
-
-
-    <div class="text-center mt-14">
-
-      <p class="text-lg">
-
-        No extreme rules.
-        <strong>No guilt.</strong>
-        No “just use more willpower.”
-
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ========================================================= -->
-<!-- NOCTRA RESET -->
-<!-- ========================================================= -->
-
-<section
-  id="request"
-  class="px-6 md:px-10 py-24 bg-[var(--ink)] text-[var(--paper)]"
->
-
-  <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
-
-
-    <!-- LEFT -->
-
-    <div class="reveal">
-
-      <p class="font-bold tracking-widest text-sm">
-        START HERE
-      </p>
-
-
-      <h2 class="display text-4xl md:text-6xl font-bold mt-4">
-
-        Meet the
-
-        <span class="hand text-5xl md:text-7xl text-[var(--yellow)]">
-          Noctra Craving Reset
-        </span>
-
-      </h2>
-
-
-      <p class="text-xl mt-6 leading-relaxed opacity-90">
-
-        Forget another guide you'll download and never open.
-
-        The Noctra Craving Reset is designed to help you build awareness
-        through short, practical daily actions.
-
-      </p>
-
-
-      <div class="mt-8 space-y-5">
-
-
-        <div class="flex gap-4 items-start">
-
-          <div class="text-2xl">
-            🧠
-          </div>
-
-          <div>
-
-            <strong>
-              Understand your patterns
-            </strong>
-
-            <p class="opacity-80 mt-1">
-              Learn what tends to happen before your cravings.
-            </p>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="flex gap-4 items-start">
-
-          <div class="text-2xl">
-            🔔
-          </div>
-
-          <div>
-
-            <strong>
-              Get daily prompts
-            </strong>
-
-            <p class="opacity-80 mt-1">
-              Small reminders designed to keep awareness going.
-            </p>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="flex gap-4 items-start">
-
-          <div class="text-2xl">
-            🌱
-          </div>
-
-          <div>
-
-            <strong>
-              Take one small action
-            </strong>
-
-            <p class="opacity-80 mt-1">
-              Focus on realistic changes instead of extreme rules.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="note bg-[var(--yellow)] text-[var(--ink)] mt-10 rotate-[-2deg]">
-
-        <span class="hand text-3xl">
-
-          “What happened right before I wanted sugar?”
-
-        </span>
-
-      </div>
-
-    </div>
-
-
-
-    <!-- FORM -->
-
-    <div class="card bg-[var(--paper)] text-[var(--ink)] p-8 md:p-10 reveal">
-
-
-      <div class="text-center mb-7">
-
-        <div class="text-6xl mb-4">
-          📲
-        </div>
-
-
-        <h3 class="display text-3xl font-bold">
-          Get the free reset
-        </h3>
-
-
-        <p class="mt-3 opacity-80">
-
-          Enter your information below and request your Noctra Craving Reset.
-
-        </p>
-
-      </div>
-
-
-
-      <!-- WEB3FORMS -->
-
-      <form
-        action="https://api.web3forms.com/submit"
-        method="POST"
-        class="space-y-5"
-      >
-
-        <!-- YOUR WEB3FORMS KEY -->
-
-        <input
-          type="hidden"
-          name="access_key"
-          value="224e9d2a-50c4-494b-82cc-db0da823d5a5"
-        >
-
-
-        <!-- EMAIL SUBJECT -->
-
-        <input
-          type="hidden"
-          name="subject"
-          value="New Noctra Craving Reset Request"
-        >
-
-
-        <!-- SOURCE -->
-
-        <input
-          type="hidden"
-          name="source"
-          value="Noctra Wellness Website"
-        >
-
-
-        <!-- RESOURCE -->
-
-        <input
-          type="hidden"
-          name="resource"
-          value="Noctra Craving Reset"
-        >
-
-
-
-        <div>
-
-          <label
-            for="name"
-            class="font-bold block mb-2"
-          >
-            First name
-          </label>
-
-
-          <input
-            id="name"
-            type="text"
-            name="name"
-            placeholder="Your first name"
-            required
-            class="w-full px-5 py-4 rounded-xl border-2 border-[var(--ink)] bg-white"
-          >
-
-        </div>
-
-
-
-        <div>
-
-          <label
-            for="email"
-            class="font-bold block mb-2"
-          >
-            Email address
-          </label>
-
-
-          <input
-            id="email"
-            type="email"
-            name="email"
-            placeholder="you@example.com"
-            required
-            class="w-full px-5 py-4 rounded-xl border-2 border-[var(--ink)] bg-white"
-          >
-
-        </div>
-
-
-
-        <button
-          type="submit"
-          class="btn w-full bg-[var(--yellow)] text-[var(--ink)]"
-        >
-
-          REQUEST MY FREE RESET
-
-        </button>
-
-
-        <p class="text-sm text-center opacity-70">
-
-          No spam. Just practical, science-informed craving education.
-
-        </p>
-
-      </form>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ========================================================= -->
-<!-- WHY NOCTRA -->
-<!-- ========================================================= -->
-
-<section class="px-6 md:px-10 py-24">
-
-  <div class="max-w-7xl mx-auto">
-
-
-    <div class="max-w-3xl reveal">
-
-      <p class="font-bold tracking-widest text-sm">
-        WHY NOCTRA
-      </p>
-
-
-      <h2 class="display text-4xl md:text-6xl font-bold mt-3">
-
-        Wellness shouldn't feel like another set of rules.
-
-      </h2>
-
-    </div>
-
-
-
-    <div class="grid md:grid-cols-3 gap-8 mt-12">
-
-
-      <div class="card bg-[var(--blue)] p-8 reveal">
-
-        <div class="text-5xl">
-          🧠
-        </div>
-
-        <h3 class="display text-2xl font-bold mt-5">
-          Science-informed
-        </h3>
-
-        <p class="mt-4">
-
-          We translate useful wellness and behavioral science
-          into everyday language.
-
-        </p>
-
-      </div>
-
-
-
-      <div class="card bg-[var(--yellow)] p-8 reveal">
-
-        <div class="text-5xl">
-          🛠️
-        </div>
-
-        <h3 class="display text-2xl font-bold mt-5">
-          Practical
-        </h3>
-
-        <p class="mt-4">
-
-          Understanding the problem matters—but so does having
-          something realistic to try.
-
-        </p>
-
-      </div>
-
-
-
-      <div class="card bg-[var(--mint)] p-8 reveal">
-
-        <div class="text-5xl">
-          🤝
-        </div>
-
-        <h3 class="display text-2xl font-bold mt-5">
-          Non-judgmental
-        </h3>
-
-        <p class="mt-4">
-
-          No shame, guilt, extreme rules, or unrealistic promises.
-
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ========================================================= -->
-<!-- CONTENT PREVIEW -->
-<!-- ========================================================= -->
-
-<section class="px-6 md:px-10 py-24 bg-white/50">
-
-  <div class="max-w-7xl mx-auto">
-
-
-    <div class="text-center reveal">
-
-      <p class="font-bold tracking-widest text-sm">
-        FROM NOCTRA
-      </p>
-
-
-      <h2 class="display text-4xl md:text-6xl font-bold mt-3">
-
-        Learn something about your cravings.
-
-      </h2>
-
-    </div>
-
-
-
-    <div class="grid md:grid-cols-3 gap-7 mt-12">
-
-
-      <div class="card bg-[var(--yellow)] p-7 reveal">
-
-        <p class="font-bold text-sm">
-          CRAVING PATTERNS
-        </p>
-
-
-        <h3 class="display text-3xl font-bold mt-5">
-
-          Why do I crave sugar at night?
-
-        </h3>
-
-
-        <p class="mt-4">
-
-          Explore how tiredness, routines, stress, and reward can overlap
-          at the end of the day.
-
-        </p>
-
-      </div>
-
-
-
-      <div class="card bg-[var(--coral)] p-7 reveal">
-
-        <p class="font-bold text-sm">
-          STRESS
-        </p>
-
-
-        <h3 class="display text-3xl font-bold mt-5">
-
-          Why does stress make me want sweets?
-
-        </h3>
-
-
-        <p class="mt-4">
-
-          Learn why familiar foods can become more appealing during
-          stressful moments.
-
-        </p>
-
-      </div>
-
-
-
-      <div class="card bg-[var(--lav)] p-7 reveal">
-
-        <p class="font-bold text-sm">
-          BOREDOM
-        </p>
-
-
-        <h3 class="display text-3xl font-bold mt-5">
-
-          Can boredom trigger a craving?
-
-        </h3>
-
-
-        <p class="mt-4">
-
-          Understand how eating can sometimes become connected with
-          stimulation, comfort, or routine.
-
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ========================================================= -->
-<!-- FINAL CTA -->
-<!-- ========================================================= -->
-
-<section class="px-6 md:px-10 py-28">
-
-  <div class="max-w-4xl mx-auto text-center reveal">
-
-
-    <div class="text-6xl mb-6">
-      🍪 → 🧠
-    </div>
-
-
-    <h2 class="display text-5xl md:text-7xl font-bold leading-tight">
-
-      Your cravings are worth understanding.
-
-    </h2>
-
-
-    <p class="text-xl md:text-2xl mt-7 leading-relaxed">
-
-      Start learning what's behind them—and take small,
-      practical steps toward changing the patterns that keep repeating.
-
-    </p>
-
-
-    <a
-      href="#request"
-      class="btn bg-[var(--yellow)] mt-9"
-    >
-      GET THE FREE NOCTRA RESET
-    </a>
-
-
-    <p class="mt-5 opacity-70">
-
-      No dieting. No judgment. Just a better understanding of your cravings.
-
-    </p>
-
-  </div>
-
-</section>
-
-
-
-<!-- ========================================================= -->
-<!-- FOOTER -->
-<!-- ========================================================= -->
-
-<footer class="border-t-2 border-[var(--ink)] px-6 md:px-10 py-12">
-
-  <div class="max-w-7xl mx-auto">
-
-
-    <div class="flex flex-col md:flex-row justify-between gap-8">
-
+  <header class="hero">
+    <div class="container hero-grid">
 
       <div>
+        <div class="eyebrow">NOCTRA WELLNESS</div>
 
-        <div class="display text-2xl font-bold">
-          Noctra Wellness
-        </div>
+        <h1>
+          Understand your cravings.<br>
+          <span>Change the pattern.</span>
+        </h1>
 
-
-        <p class="hand text-2xl mt-2">
-          The science behind your cravings.
+        <p class="hero-text">
+          Sugar cravings aren't always about willpower. Stress, fatigue,
+          emotions, routines, habits, and your environment can all play a role.
+          Noctra helps you understand what's behind the craving and what you can
+          actually do about it.
         </p>
 
+        <div class="hero-actions">
+          <a href="#reset" class="primary-button">Get the Free Reset</a>
+          <a href="#approach" class="secondary-button">Learn how it works →</a>
+        </div>
       </div>
 
+      <div class="hero-card">
+        <div class="card-label">A craving can start with more than hunger</div>
 
+        <h3>What might be behind yours?</h3>
 
-      <div class="flex flex-wrap gap-6 font-bold">
+        <div class="trigger">
+          <span>Stress</span>
+          <span>Pressure builds</span>
+        </div>
 
-        <a href="#how" class="hover:underline">
-          About
-        </a>
+        <div class="trigger">
+          <span>Fatigue</span>
+          <span>Energy is low</span>
+        </div>
 
-        <a href="#request" class="hover:underline">
-          Noctra Reset
-        </a>
+        <div class="trigger">
+          <span>Boredom</span>
+          <span>Something to do</span>
+        </div>
 
-        <a href="#request" class="hover:underline">
-          Get Started
-        </a>
+        <div class="trigger">
+          <span>Emotion</span>
+          <span>Comfort or reward</span>
+        </div>
 
+        <div class="trigger">
+          <span>Habit</span>
+          <span>Same time, same cue</span>
+        </div>
       </div>
 
     </div>
+  </header>
 
 
+  <!-- TRUST STRIP -->
 
-    <div class="mt-10 pt-6 border-t border-[var(--ink)]/30 text-sm opacity-70">
-
-      <p>
-
-        Noctra Wellness provides educational content and is not a substitute
-        for professional medical advice.
-
-      </p>
-
-
-      <p class="mt-3">
-
-        © 2026 Noctra Wellness. All rights reserved.
-
-      </p>
-
+  <div class="trust">
+    <div class="container trust-content">
+      Science-informed education • Practical tools • No guilt • No restrictive dieting
     </div>
-
   </div>
 
-</footer>
+
+  <!-- PROBLEM -->
+
+  <section class="problem">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="eyebrow">THE PROBLEM</div>
+
+        <h2>Cravings can be connected to what's happening around you.</h2>
+
+        <p>
+          Understanding the pattern can be more useful than simply trying
+          to fight the craving.
+        </p>
+      </div>
+
+      <div class="problem-grid">
+
+        <div class="problem-card">
+          <strong>Stress</strong>
+          <p>You reach for something sweet when the day feels overwhelming.</p>
+        </div>
+
+        <div class="problem-card">
+          <strong>Tiredness</strong>
+          <p>Late nights and low energy can change what sounds appealing.</p>
+        </div>
+
+        <div class="problem-card">
+          <strong>Boredom</strong>
+          <p>Sometimes the craving is connected to wanting stimulation or a break.</p>
+        </div>
+
+        <div class="problem-card">
+          <strong>Routine</strong>
+          <p>A familiar time, place, or activity can become part of the pattern.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
 
+  <!-- APPROACH -->
 
-<!-- ========================================================= -->
-<!-- SCROLL ANIMATIONS -->
-<!-- ========================================================= -->
+  <section class="approach" id="approach">
+    <div class="container">
 
-<script>
+      <div class="section-heading">
+        <div class="eyebrow">THE NOCTRA APPROACH</div>
 
-  const observer = new IntersectionObserver(
+        <h2>Understand first. Change follows.</h2>
 
-    entries => {
+        <p>
+          Noctra focuses on awareness and practical behavior change rather
+          than restriction, guilt, or relying on willpower alone.
+        </p>
+      </div>
 
-      entries.forEach(entry => {
+      <div class="steps">
 
-        if (entry.isIntersecting) {
+        <div class="step">
+          <div class="step-number">01 — UNDERSTAND</div>
+          <h3>Learn what's happening.</h3>
+          <p>
+            Discover how stress, fatigue, emotions, habits, routines,
+            environment, and other factors can influence cravings.
+          </p>
+        </div>
 
-          entry.target.classList.add('show');
+        <div class="step">
+          <div class="step-number">02 — RECOGNIZE</div>
+          <h3>Spot your patterns.</h3>
+          <p>
+            Notice when cravings appear, what happened beforehand,
+            and what you may actually be looking for.
+          </p>
+        </div>
 
-        }
+        <div class="step">
+          <div class="step-number">03 — RESPOND</div>
+          <h3>Try something different.</h3>
+          <p>
+            Use small, realistic actions that help you respond to
+            cravings more intentionally.
+          </p>
+        </div>
 
-      });
-
-    },
-
-    {
-      threshold:0.12
-    }
-
-  );
+      </div>
+    </div>
+  </section>
 
 
-  document
-    .querySelectorAll('.reveal')
-    .forEach(el => observer.observe(el));
+  <!-- FREE RESET -->
 
-</script>
+  <section class="reset" id="reset">
+    <div class="container reset-grid">
 
+      <div>
+        <div class="eyebrow">START FREE</div>
+
+        <h2>Meet the Noctra Craving Reset.</h2>
+
+        <p>
+          A simple daily tool designed to help you notice your cravings,
+          understand your triggers, and take small actions that build
+          awareness over time.
+        </p>
+
+        <ul class="reset-list">
+          <li>Daily craving check-ins</li>
+          <li>Simple trigger awareness</li>
+          <li>Short practical actions</li>
+          <li>No dieting or calorie tracking</li>
+        </ul>
+      </div>
+
+
+      <div class="form-card">
+
+        <h3>Get the free reset</h3>
+
+        <p>
+          Enter your details and we'll send you access information.
+        </p>
+
+        <form action="https://api.web3forms.com/submit" method="POST">
+
+          <input type="hidden" name="access_key" value="224e9d2a-50c4-494b-82cc-db0da823d5a5">
+
+          <input type="hidden" name="subject" value="New Noctra Craving Reset Request">
+
+          <input type="hidden" name="source" value="Noctra Wellness Website">
+
+          <input type="hidden" name="resource" value="Noctra Craving Reset">
+
+          <div class="form-group">
+            <input
+              type="text"
+              name="name"
+              placeholder="Your name"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email address"
+              required
+            >
+          </div>
+
+          <button type="submit" class="form-button">
+            Get My Free Reset
+          </button>
+
+          <p class="privacy">
+            Noctra Wellness does not provide medical advice.
+          </p>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- WHY NOCTRA -->
+
+  <section class="why" id="why">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="eyebrow">WHY NOCTRA</div>
+
+        <h2>A different way to think about cravings.</h2>
+
+        <p>
+          Noctra isn't another diet plan. It's an education-first approach
+          to understanding the patterns behind cravings.
+        </p>
+      </div>
+
+      <div class="why-grid">
+
+        <div class="why-card">
+          <h3>Science-informed</h3>
+          <p>
+            We translate relevant research and behavioral concepts into
+            language that makes sense in everyday life.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <h3>Practical</h3>
+          <p>
+            Information is useful only when you can do something with it.
+            Noctra focuses on small, realistic actions.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <h3>Non-judgmental</h3>
+          <p>
+            No guilt. No shame. No “just have more willpower.”
+            The goal is understanding, awareness, and progress.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONTENT -->
+
+  <section class="content">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="eyebrow">EXPLORE CRAVINGS</div>
+
+        <h2>Start with the moments you recognize.</h2>
+
+        <p>
+          Everyday situations can tell you a lot about your craving patterns.
+        </p>
+      </div>
+
+      <div class="content-grid">
+
+        <article class="article">
+          <div class="article-tag">Nighttime</div>
+          <h3>Why do I want sugar at night?</h3>
+          <p>
+            When the day finally gets quiet, cravings can feel stronger.
+            Explore what tiredness, routines, stress, and reward can have to do with it.
+          </p>
+        </article>
+
+        <article class="article">
+          <div class="article-tag">Stress</div>
+          <h3>Why stress can change what you crave.</h3>
+          <p>
+            A stressful day can influence eating patterns in ways that have
+            little to do with physical hunger.
+          </p>
+        </article>
+
+        <article class="article">
+          <div class="article-tag">Boredom</div>
+          <h3>Is it hunger—or do you need a break?</h3>
+          <p>
+            Sometimes the context around a craving is just as important as
+            the food you're thinking about.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FINAL CTA -->
+
+  <section class="final">
+    <div class="container">
+
+      <div class="eyebrow">NOCTRA WELLNESS</div>
+
+      <h2>Your cravings are<br>worth understanding.</h2>
+
+      <p>
+        Start learning what may be behind your cravings and discover
+        practical ways to respond differently.
+      </p>
+
+      <a href="#reset" class="primary-button">
+        Get the Free Reset
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div>
+          <div class="footer-logo">NOCTRA.</div>
+
+          <div class="footer-description">
+            Science-informed wellness education for understanding
+            cravings and building healthier patterns.
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <a href="#approach">How It Works</a>
+          <a href="#why">Why Noctra</a>
+          <a href="#reset">Free Reset</a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 Noctra Wellness. All rights reserved.
+        <br><br>
+        Noctra Wellness provides educational and informational content only.
+        It is not intended to diagnose, treat, cure, or prevent any disease
+        or medical condition and is not a substitute for professional
+        medical advice.
+      </div>
+
+    </div>
+  </footer>
 
 </body>
 </html>
