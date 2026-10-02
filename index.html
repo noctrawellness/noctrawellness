@@ -1,1822 +1,943 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Noctra Wellness | Understand Your Cravings</title>
-
-<meta name="description" content="Noctra Wellness helps people understand the patterns behind sugar cravings and build practical habits that fit real life.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
-  --cream:#f6f7f3;
-  --white:#ffffff;
-  --ink:#17211d;
-  --muted:#66736d;
-  --green:#23483b;
-  --green-dark:#18382e;
-  --green-light:#dce9e2;
-  --line:#dfe5e1;
-  --soft:#edf2ee;
-  --accent:#b9d1c5;
-}
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:"DM Sans",sans-serif;
-  color:var(--ink);
-  background:var(--cream);
-  line-height:1.6;
-  overflow-x:hidden;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-.container{
-  width:min(1120px,92%);
-  margin:auto;
-}
-
-
-/* =========================
-   NAV
-========================= */
-
-nav{
-  height:82px;
-  display:flex;
-  align-items:center;
-  background:rgba(246,247,243,.94);
-  border-bottom:1px solid var(--line);
-  position:sticky;
-  top:0;
-  z-index:100;
-  backdrop-filter:blur(14px);
-}
-
-.nav-inner{
-  width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-
-/* LOGO */
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:11px;
-}
-
-.brand-symbol{
-  width:40px;
-  height:40px;
-  border:1.7px solid var(--green);
-  border-radius:50%;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.brand-symbol:before{
-  content:"";
-  width:20px;
-  height:20px;
-  background:var(--green);
-  border-radius:50%;
-}
-
-.brand-symbol:after{
-  content:"";
-  position:absolute;
-  width:17px;
-  height:17px;
-  background:var(--cream);
-  border-radius:50%;
-  top:6px;
-  right:5px;
-}
-
-.brand-text{
-  display:flex;
-  flex-direction:column;
-  line-height:1;
-}
-
-.brand-name{
-  font-family:"Manrope",sans-serif;
-  font-size:18px;
-  font-weight:800;
-  letter-spacing:2px;
-}
-
-.brand-sub{
-  font-size:8px;
-  font-weight:700;
-  letter-spacing:2.8px;
-  color:#728079;
-  margin-top:5px;
-}
-
-.nav-links{
-  display:flex;
-  align-items:center;
-  gap:30px;
-  font-size:14px;
-  color:var(--muted);
-}
-
-.nav-links a:hover{
-  color:var(--ink);
-}
-
-.nav-button{
-  background:var(--green);
-  color:white !important;
-  padding:11px 19px;
-  border-radius:7px;
-  font-weight:700;
-  transition:.2s;
-}
-
-.nav-button:hover{
-  background:var(--green-dark);
-  transform:translateY(-1px);
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-  position:relative;
-  padding:110px 0 100px;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 85% 20%,rgba(205,226,216,.75),transparent 28%),
-    radial-gradient(circle at 10% 90%,rgba(225,234,228,.65),transparent 25%),
-    var(--cream);
-}
-
-.hero:before{
-  content:"";
-  position:absolute;
-  width:360px;
-  height:360px;
-  border:1px solid rgba(35,72,59,.09);
-  border-radius:50%;
-  right:-150px;
-  top:80px;
-}
-
-.hero:after{
-  content:"";
-  position:absolute;
-  width:230px;
-  height:230px;
-  border:1px solid rgba(35,72,59,.07);
-  border-radius:50%;
-  right:-70px;
-  top:145px;
-}
-
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:75px;
-  align-items:center;
-  position:relative;
-  z-index:2;
-}
-
-.eyebrow{
-  display:inline-block;
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:#557267;
-  margin-bottom:22px;
-}
-
-h1{
-  font-family:"Manrope",sans-serif;
-  font-size:clamp(48px,6vw,76px);
-  line-height:1.02;
-  letter-spacing:-3.8px;
-  margin-bottom:28px;
-}
-
-h1 span{
-  color:var(--green);
-}
-
-.hero-text{
-  font-size:18px;
-  line-height:1.75;
-  color:var(--muted);
-  max-width:620px;
-  margin-bottom:34px;
-}
-
-.hero-actions{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  flex-wrap:wrap;
-}
-
-.primary-button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  background:var(--green);
-  color:white;
-  padding:15px 25px;
-  border-radius:7px;
-  font-size:14px;
-  font-weight:700;
-  transition:.25s;
-  box-shadow:0 8px 25px rgba(35,72,59,.16);
-}
-
-.primary-button:hover{
-  transform:translateY(-3px);
-  background:var(--green-dark);
-  box-shadow:0 13px 30px rgba(35,72,59,.22);
-}
-
-.secondary-button{
-  padding:15px 20px;
-  color:var(--muted);
-  font-size:14px;
-  font-weight:600;
-}
-
-
-/* =========================
-   HERO VISUAL
-========================= */
-
-.hero-visual{
-  position:relative;
-  min-height:430px;
-}
-
-.orbit{
-  position:absolute;
-  width:380px;
-  height:380px;
-  border:1px solid rgba(35,72,59,.13);
-  border-radius:50%;
-  top:25px;
-  left:50%;
-  transform:translateX(-50%);
-}
-
-.orbit:before{
-  content:"";
-  position:absolute;
-  width:270px;
-  height:270px;
-  border:1px solid rgba(35,72,59,.1);
-  border-radius:50%;
-  top:55px;
-  left:55px;
-}
-
-.center-circle{
-  position:absolute;
-  width:155px;
-  height:155px;
-  border-radius:50%;
-  background:var(--green);
-  top:137px;
-  left:50%;
-  transform:translateX(-50%);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:white;
-  box-shadow:0 20px 55px rgba(35,72,59,.18);
-}
-
-.center-circle strong{
-  font-family:"Manrope",sans-serif;
-  font-size:20px;
-  line-height:1.2;
-}
-
-.floating-card{
-  position:absolute;
-  background:white;
-  border:1px solid var(--line);
-  border-radius:10px;
-  padding:14px 17px;
-  box-shadow:0 12px 35px rgba(20,40,32,.08);
-  font-size:13px;
-  font-weight:600;
-}
-
-.floating-card small{
-  display:block;
-  color:#7b8782;
-  font-size:10px;
-  font-weight:500;
-  margin-top:2px;
-}
-
-.card-one{
-  top:55px;
-  left:10px;
-}
-
-.card-two{
-  top:155px;
-  right:0;
-}
-
-.card-three{
-  bottom:45px;
-  left:35px;
-}
-
-.card-four{
-  bottom:85px;
-  right:20px;
-}
-
-
-/* =========================
-   TRUST
-========================= */
-
-.trust{
-  background:white;
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  padding:25px 0;
-}
-
-.trust-content{
-  text-align:center;
-  color:#68756f;
-  font-size:13px;
-  letter-spacing:.2px;
-}
-
-
-/* =========================
-   GENERAL SECTIONS
-========================= */
-
-section{
-  padding:105px 0;
-}
-
-.section-heading{
-  max-width:700px;
-  margin-bottom:55px;
-}
-
-.section-heading h2{
-  font-family:"Manrope",sans-serif;
-  font-size:clamp(34px,4vw,50px);
-  line-height:1.1;
-  letter-spacing:-2.3px;
-  margin-bottom:18px;
-}
-
-.section-heading p{
-  color:var(--muted);
-  font-size:17px;
-}
-
-
-/* =========================
-   PROBLEM
-========================= */
-
-.problem{
-  background:white;
-}
-
-.problem-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-}
-
-.problem-card{
-  position:relative;
-  padding:31px 27px;
-  border:1px solid var(--line);
-  border-radius:13px;
-  background:#fbfcfb;
-  overflow:hidden;
-  transition:.25s;
-}
-
-.problem-card:before{
-  content:"";
-  position:absolute;
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  background:var(--green-light);
-  top:-22px;
-  right:-18px;
-}
-
-.problem-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 15px 35px rgba(25,50,40,.08);
-}
-
-.problem-card strong{
-  position:relative;
-  display:block;
-  font-family:"Manrope",sans-serif;
-  font-size:18px;
-  margin-bottom:10px;
-}
-
-.problem-card p{
-  color:var(--muted);
-  font-size:14px;
-  position:relative;
-}
-
-
-/* =========================
-   APPROACH
-========================= */
-
-.approach{
-  background:
-    linear-gradient(135deg,#f6f7f3 0%,#edf3ef 100%);
-}
-
-.steps{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
-}
-
-.step{
-  position:relative;
-  background:white;
-  padding:35px;
-  border:1px solid var(--line);
-  border-radius:13px;
-  overflow:hidden;
-  transition:.25s;
-}
-
-.step:hover{
-  transform:translateY(-5px);
-  box-shadow:0 15px 35px rgba(25,50,40,.08);
-}
-
-.step:after{
-  content:"";
-  position:absolute;
-  width:100px;
-  height:100px;
-  border:1px solid var(--green-light);
-  border-radius:50%;
-  right:-55px;
-  bottom:-55px;
-}
-
-.step-number{
-  color:#71857c;
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:1.5px;
-  margin-bottom:22px;
-}
-
-.step h3{
-  font-family:"Manrope",sans-serif;
-  font-size:23px;
-  margin-bottom:12px;
-}
-
-.step p{
-  color:var(--muted);
-  font-size:15px;
-}
-
-
-/* =========================
-   RESET
-========================= */
-
-.reset{
-  position:relative;
-  background:var(--green);
-  color:white;
-  overflow:hidden;
-}
-
-.reset:before{
-  content:"";
-  position:absolute;
-  width:500px;
-  height:500px;
-  border:1px solid rgba(255,255,255,.09);
-  border-radius:50%;
-  right:-180px;
-  top:-180px;
-}
-
-.reset:after{
-  content:"";
-  position:absolute;
-  width:320px;
-  height:320px;
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:50%;
-  right:-90px;
-  top:-90px;
-}
-
-.reset-grid{
-  display:grid;
-  grid-template-columns:1fr .8fr;
-  gap:90px;
-  align-items:center;
-  position:relative;
-  z-index:2;
-}
-
-.reset .eyebrow{
-  color:#b9d1c5;
-}
-
-.reset h2{
-  font-family:"Manrope",sans-serif;
-  font-size:clamp(38px,4vw,55px);
-  line-height:1.08;
-  letter-spacing:-2.2px;
-  margin-bottom:20px;
-}
-
-.reset p{
-  color:#d4e0db;
-  font-size:17px;
-  max-width:600px;
-}
-
-.reset-list{
-  list-style:none;
-  margin-top:28px;
-}
-
-.reset-list li{
-  padding:11px 0;
-  border-bottom:1px solid rgba(255,255,255,.14);
-  color:#e2ebe7;
-  font-size:14px;
-}
-
-.reset-list li:before{
-  content:"✓";
-  color:#b9d1c5;
-  font-weight:800;
-  margin-right:12px;
-}
-
-
-/* =========================
-   FORM
-========================= */
-
-.form-card{
-  background:white;
-  color:var(--ink);
-  padding:34px;
-  border-radius:15px;
-  box-shadow:0 25px 60px rgba(0,0,0,.16);
-}
-
-.form-card h3{
-  font-family:"Manrope",sans-serif;
-  font-size:24px;
-  margin-bottom:7px;
-}
-
-.form-card > p{
-  color:var(--muted);
-  font-size:14px;
-  margin-bottom:22px;
-}
-
-.form-group{
-  margin-bottom:13px;
-}
-
-.form-group label{
-  display:block;
-  font-size:12px;
-  font-weight:700;
-  margin-bottom:6px;
-  color:#3e4944;
-}
-
-.form-group input,
-.form-group textarea{
-  width:100%;
-  border:1px solid var(--line);
-  padding:13px 14px;
-  border-radius:6px;
-  font-family:inherit;
-  font-size:14px;
-  outline:none;
-  background:#fcfdfc;
-  transition:.2s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus{
-  border-color:#718f82;
-  background:white;
-  box-shadow:0 0 0 3px rgba(113,143,130,.1);
-}
-
-.form-group textarea{
-  min-height:100px;
-  resize:vertical;
-}
-
-.form-button{
-  width:100%;
-  border:0;
-  cursor:pointer;
-  background:var(--green);
-  color:white;
-  padding:14px;
-  border-radius:6px;
-  font-family:inherit;
-  font-weight:700;
-  font-size:14px;
-  transition:.2s;
-}
-
-.form-button:hover{
-  background:var(--green-dark);
-  transform:translateY(-1px);
-}
-
-.privacy{
-  font-size:10px !important;
-  color:#89938f !important;
-  margin-top:12px !important;
-  margin-bottom:0 !important;
-}
-
-
-/* =========================
-   WHY
-========================= */
-
-.why{
-  background:white;
-}
-
-.why-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
-}
-
-.why-card{
-  padding:35px;
-  border:1px solid var(--line);
-  border-radius:13px;
-  position:relative;
-  overflow:hidden;
-}
-
-.why-card:before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:0;
-  width:4px;
-  height:100%;
-  background:var(--green);
-}
-
-.why-card h3{
-  font-family:"Manrope",sans-serif;
-  font-size:20px;
-  margin-bottom:12px;
-}
-
-.why-card p{
-  color:var(--muted);
-  font-size:14px;
-}
-
-
-/* =========================
-   CONTENT
-========================= */
-
-.content{
-  background:var(--cream);
-}
-
-.content-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-.article{
-  background:white;
-  border:1px solid var(--line);
-  border-radius:13px;
-  padding:30px;
-  transition:.25s;
-}
-
-.article:hover{
-  transform:translateY(-5px);
-  box-shadow:0 15px 35px rgba(25,50,40,.08);
-}
-
-.article-tag{
-  color:#688077;
-  font-size:10px;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:1.5px;
-  margin-bottom:16px;
-}
-
-.article h3{
-  font-family:"Manrope",sans-serif;
-  font-size:21px;
-  line-height:1.3;
-  margin-bottom:12px;
-}
-
-.article p{
-  color:var(--muted);
-  font-size:14px;
-}
-
-
-/* =========================
-   FINAL CTA
-========================= */
-
-.final{
-  position:relative;
-  text-align:center;
-  background:white;
-  padding:120px 0;
-  overflow:hidden;
-}
-
-.final:before{
-  content:"";
-  position:absolute;
-  width:300px;
-  height:300px;
-  border:1px solid var(--green-light);
-  border-radius:50%;
-  left:-170px;
-  top:50%;
-  transform:translateY(-50%);
-}
-
-.final:after{
-  content:"";
-  position:absolute;
-  width:190px;
-  height:190px;
-  border:1px solid var(--green-light);
-  border-radius:50%;
-  right:-90px;
-  top:20%;
-}
-
-.final .container{
-  position:relative;
-  z-index:2;
-}
-
-.final h2{
-  font-family:"Manrope",sans-serif;
-  font-size:clamp(40px,5vw,62px);
-  letter-spacing:-2.8px;
-  line-height:1.05;
-  margin-bottom:20px;
-}
-
-.final p{
-  color:var(--muted);
-  max-width:580px;
-  margin:0 auto 30px;
-  font-size:17px;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-  background:#17211d;
-  color:#d7dfdb;
-  padding:55px 0 30px;
-}
-
-.footer-top{
-  display:flex;
-  justify-content:space-between;
-  gap:50px;
-  padding-bottom:40px;
-  border-bottom:1px solid rgba(255,255,255,.12);
-}
-
-.footer-logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-family:"Manrope",sans-serif;
-  font-weight:800;
-  font-size:19px;
-  color:white;
-  margin-bottom:10px;
-}
-
-.footer-logo-symbol{
-  width:28px;
-  height:28px;
-  border:1.5px solid #b9d1c5;
-  border-radius:50%;
-  position:relative;
-}
-
-.footer-logo-symbol:before{
-  content:"";
-  position:absolute;
-  width:13px;
-  height:13px;
-  background:#b9d1c5;
-  border-radius:50%;
-  left:5px;
-  top:5px;
-}
-
-.footer-logo-symbol:after{
-  content:"";
-  position:absolute;
-  width:11px;
-  height:11px;
-  background:#17211d;
-  border-radius:50%;
-  left:10px;
-  top:3px;
-}
-
-.footer-description{
-  color:#9daaa4;
-  font-size:13px;
-  max-width:350px;
-}
-
-.footer-links{
-  display:flex;
-  gap:25px;
-  font-size:13px;
-  color:#aab5b0;
-}
-
-.footer-links a:hover{
-  color:white;
-}
-
-.footer-bottom{
-  padding-top:25px;
-  color:#87928d;
-  font-size:11px;
-  line-height:1.7;
-  max-width:850px;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:850px){
-
-  .nav-links a:not(.nav-button){
-    display:none;
-  }
-
-  .hero{
-    padding:75px 0;
-  }
-
-  .hero-grid,
-  .reset-grid{
-    grid-template-columns:1fr;
-    gap:50px;
-  }
-
-  .hero-visual{
-    min-height:380px;
-  }
-
-  .problem-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .steps,
-  .why-grid,
-  .content-grid{
-    grid-template-columns:1fr;
-  }
-
-  section{
-    padding:75px 0;
-  }
-
-  .footer-top{
-    flex-direction:column;
-  }
-
-}
-
-
-@media(max-width:520px){
-
-  .brand-name{
-    font-size:16px;
-  }
-
-  .brand-sub{
-    font-size:7px;
-  }
-
-  .brand-symbol{
-    width:35px;
-    height:35px;
-  }
-
-  h1{
-    font-size:47px;
-    letter-spacing:-2.5px;
-  }
-
-  .hero-text{
-    font-size:16px;
-  }
-
-  .problem-grid{
-    grid-template-columns:1fr;
-  }
-
-  .hero-visual{
-    transform:scale(.88);
-    transform-origin:center;
-    margin:-20px 0;
-  }
-
-  .form-card{
-    padding:25px;
-  }
-
-  .floating-card{
-    font-size:12px;
-  }
-
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Noctra Wellness | Understand Your Cravings</title>
+  <meta name="description" content="Noctra Wellness helps you understand why sugar cravings happen and build healthier patterns through practical, science-informed wellness education.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #f7f5ef;
+      --white: #ffffff;
+      --ink: #202522;
+      --muted: #68706b;
+      --green: #315b4d;
+      --green-dark: #24463b;
+      --green-light: #e4eee9;
+      --line: #dfe4df;
+      --soft: #eef2ee;
+      --accent: #c8d8cf;
+      --shadow: 0 18px 50px rgba(30, 45, 38, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(32, 37, 34, 0.08);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .logo-symbol {
+      width: 36px;
+      height: 36px;
+      border: 1.5px solid var(--green);
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .logo-symbol::before {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--green);
+      top: 9px;
+      left: 8px;
+    }
+
+    .logo-symbol::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cream);
+      top: 7px;
+      left: 14px;
+    }
+
+    .logo-text strong {
+      display: block;
+      font-family: "Manrope", sans-serif;
+      font-size: 18px;
+      letter-spacing: 2.5px;
+      line-height: 1;
+    }
+
+    .logo-text span {
+      display: block;
+      font-size: 8px;
+      letter-spacing: 3px;
+      color: var(--muted);
+      margin-top: 5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .nav-button {
+      background: var(--green);
+      color: white !important;
+      padding: 11px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 95px 0 90px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--green);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: var(--green);
+    }
+
+    h1 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(44px, 6vw, 70px);
+      line-height: 1.03;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+      max-width: 650px;
+    }
+
+    .hero-copy {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 590px;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 23px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.25s ease;
+    }
+
+    .button-primary {
+      background: var(--green);
+      color: white;
+      box-shadow: 0 8px 20px rgba(49, 91, 77, 0.18);
+    }
+
+    .button-primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+    }
+
+    .button-secondary {
+      color: var(--green);
+    }
+
+    .button-secondary:hover {
+      transform: translateX(3px);
+    }
+
+    /* HERO VISUAL */
+
+    .hero-visual {
+      min-height: 470px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .orbit {
+      width: 380px;
+      height: 380px;
+      border: 1px solid #ccd7d1;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .orbit::before {
+      content: "";
+      position: absolute;
+      width: 270px;
+      height: 270px;
+      border: 1px solid #d7dfda;
+      border-radius: 50%;
+      top: 54px;
+      left: 54px;
+    }
+
+    .center-card {
+      position: absolute;
+      width: 185px;
+      height: 185px;
+      background: var(--white);
+      border-radius: 50%;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 35px;
+      font-family: "Manrope", sans-serif;
+      font-weight: 800;
+      color: var(--green);
+      font-size: 18px;
+      top: 97px;
+      left: 97px;
+      z-index: 2;
+    }
+
+    .trigger {
+      position: absolute;
+      background: white;
+      padding: 13px 17px;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      font-size: 13px;
+      font-weight: 700;
+      z-index: 3;
+    }
+
+    .trigger small {
+      display: block;
+      font-size: 10px;
+      color: var(--muted);
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    .trigger-one {
+      top: 40px;
+      right: 5px;
+    }
+
+    .trigger-two {
+      bottom: 65px;
+      right: 10px;
+    }
+
+    .trigger-three {
+      bottom: 15px;
+      left: 15px;
+    }
+
+    .trigger-four {
+      top: 100px;
+      left: -5px;
+    }
+
+    /* TRUST STRIP */
+
+    .trust {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 22px 0;
+      background: rgba(255,255,255,0.4);
+    }
+
+    .trust-content {
+      display: flex;
+      justify-content: center;
+      gap: 45px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .trust-content span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-heading {
+      max-width: 650px;
+      margin-bottom: 50px;
+    }
+
+    .section-heading h2 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(32px, 4vw, 47px);
+      line-height: 1.1;
+      letter-spacing: -1.8px;
+      margin-bottom: 18px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    /* PROBLEM */
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .problem-card {
+      background: white;
+      padding: 30px 24px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      min-height: 190px;
+      transition: 0.25s ease;
+    }
+
+    .problem-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .problem-number {
+      font-size: 11px;
+      color: var(--green);
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 35px;
+    }
+
+    .problem-card h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .problem-card p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* APPROACH */
+
+    .approach {
+      background: var(--green);
+      color: white;
+    }
+
+    .approach .section-heading p {
+      color: #d9e5df;
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .approach-card {
+      border-top: 1px solid rgba(255,255,255,0.3);
+      padding-top: 24px;
+    }
+
+    .approach-number {
+      font-size: 12px;
+      letter-spacing: 2px;
+      opacity: 0.65;
+      margin-bottom: 35px;
+    }
+
+    .approach-card h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .approach-card p {
+      color: #d9e5df;
+      font-size: 14px;
+    }
+
+    /* RESET SECTION */
+
+    .reset-section {
+      background: #f1f4f1;
+    }
+
+    .reset-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .reset-copy h2 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(34px, 4vw, 49px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+
+    .reset-copy > p {
+      color: var(--muted);
+      font-size: 16px;
+      margin-bottom: 28px;
+    }
+
+    .reset-list {
+      list-style: none;
+      margin-bottom: 35px;
+    }
+
+    .reset-list li {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 14px;
+      font-size: 14px;
+    }
+
+    .check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--green-light);
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+
+    .why-free {
+      border-left: 2px solid var(--green);
+      padding: 4px 0 4px 20px;
+      margin-top: 35px;
+    }
+
+    .why-free h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+
+    .why-free p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* RESET FORM */
+
+    .form-card {
+      background: white;
+      padding: 38px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+
+    .form-card h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 27px;
+      margin-bottom: 8px;
+    }
+
+    .form-card-intro {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 7px;
+      color: #3f4743;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid #d7ddd9;
+      border-radius: 8px;
+      padding: 13px;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      background: #fbfcfb;
+      transition: 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--green);
+      background: white;
+    }
+
+    .form-group textarea {
+      min-height: 105px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      margin-top: 4px;
+    }
+
+    .privacy {
+      font-size: 10px;
+      color: #89918c;
+      text-align: center;
+      margin-top: 13px;
+    }
+
+    /* WHY NOCTRA */
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .why-card {
+      padding: 30px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    .why-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--green);
+      font-weight: 800;
+      margin-bottom: 25px;
+    }
+
+    .why-card h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 21px;
+      margin-bottom: 9px;
+    }
+
+    .why-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* CONTENT */
+
+    .content-section {
+      background: white;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .content-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--cream);
+      transition: 0.25s ease;
+    }
+
+    .content-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .content-top {
+      height: 160px;
+      background: var(--green-light);
+      padding: 25px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .content-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .content-body {
+      padding: 24px;
+    }
+
+    .content-body h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 20px;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .content-body p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* FINAL CTA */
+
+    .final-cta {
+      padding: 105px 0;
+      text-align: center;
+      background: var(--cream);
+    }
+
+    .final-cta h2 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(36px, 5vw, 58px);
+      letter-spacing: -2px;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .final-cta p {
+      color: var(--muted);
+      max-width: 570px;
+      margin: 0 auto 28px;
+      font-size: 16px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #202522;
+      color: white;
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 50px;
+      padding-bottom: 50px;
+    }
+
+    .footer-brand p {
+      color: #aeb8b2;
+      font-size: 13px;
+      max-width: 330px;
+      margin-top: 18px;
+    }
+
+    .footer-title {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #aeb8b2;
+      margin-bottom: 17px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      font-size: 13px;
+    }
+
+    .footer-links a {
+      color: #e2e7e4;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 22px;
+      color: #8f9993;
+      font-size: 10px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+
+      .nav-links a:not(.nav-button) {
+        display: none;
+      }
+
+      .hero {
+        padding: 65px 0;
+      }
+
+      .hero-grid,
+      .reset-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        gap: 40px;
+      }
+
+      .hero-visual {
+        min-height: 390px;
+      }
+
+      .orbit {
+        width: 310px;
+        height: 310px;
+      }
+
+      .orbit::before {
+        width: 220px;
+        height: 220px;
+        top: 44px;
+        left: 44px;
+      }
+
+      .center-card {
+        width: 155px;
+        height: 155px;
+        top: 77px;
+        left: 77px;
+        font-size: 16px;
+      }
+
+      .trigger-one {
+        right: -5px;
+      }
+
+      .trigger-four {
+        left: -10px;
+      }
+
+      .problem-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .approach-grid,
+      .why-grid,
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .reset-layout {
+        gap: 40px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 560px) {
+
+      nav {
+        height: 72px;
+      }
+
+      .nav-button {
+        padding: 9px 13px;
+        font-size: 12px;
+      }
+
+      h1 {
+        font-size: 44px;
+        letter-spacing: -2px;
+      }
+
+      .hero-copy {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .problem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-card {
+        padding: 25px 20px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .hero-visual {
+        transform: scale(0.88);
+        margin-left: -20px;
+        margin-right: -20px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-brand {
+        grid-column: auto;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <!-- NAVIGATION -->
 
-<!-- NAVIGATION -->
+  <div class="container">
+    <nav>
 
-<nav>
+      <a href="#top" class="logo">
+        <div class="logo-symbol"></div>
 
-  <div class="container nav-inner">
-
-    <a href="#" class="brand">
-
-      <div class="brand-symbol"></div>
-
-      <div class="brand-text">
-
-        <div class="brand-name">
-          NOCTRA
+        <div class="logo-text">
+          <strong>NOCTRA</strong>
+          <span>WELLNESS</span>
         </div>
-
-        <div class="brand-sub">
-          WELLNESS
-        </div>
-
-      </div>
-
-    </a>
-
-
-    <div class="nav-links">
-
-      <a href="#approach">
-        How It Works
       </a>
 
-      <a href="#why">
-        Why Noctra
-      </a>
+      <div class="nav-links">
+        <a href="#how">How It Works</a>
+        <a href="#why">Why Noctra</a>
+        <a href="#reset" class="nav-button">Get the Free Reset</a>
+      </div>
 
-      <a href="#reset" class="nav-button">
-        Free Reset
-      </a>
-
-    </div>
-
+    </nav>
   </div>
 
-</nav>
 
+  <!-- HERO -->
 
+  <main id="top">
 
-<!-- HERO -->
+    <section class="hero">
 
-<header class="hero">
+      <div class="container">
 
-  <div class="container hero-grid">
+        <div class="hero-grid">
 
+          <div>
 
-    <div>
-
-      <div class="eyebrow">
-        NOCTRA WELLNESS
-      </div>
-
-
-      <h1>
-        Understand your cravings.<br>
-        <span>Change the pattern.</span>
-      </h1>
-
-
-      <p class="hero-text">
-
-        Sugar cravings aren't always about willpower.
-
-        Stress, fatigue, emotions, routines, habits, and your environment
-        can all play a role.
-
-        Noctra helps you understand what's behind the craving and what you
-        can actually do about it.
-
-      </p>
-
-
-      <div class="hero-actions">
-
-        <a href="#reset" class="primary-button">
-          Get the Free Reset
-        </a>
-
-        <a href="#approach" class="secondary-button">
-          Learn how it works →
-        </a>
-
-      </div>
-
-    </div>
-
-
-
-    <!-- HERO VISUAL -->
-
-    <div class="hero-visual">
-
-      <div class="orbit"></div>
-
-      <div class="center-circle">
-        <strong>
-          Understand<br>
-          the craving
-        </strong>
-      </div>
-
-
-      <div class="floating-card card-one">
-        Stress
-        <small>What's happening?</small>
-      </div>
-
-
-      <div class="floating-card card-two">
-        Fatigue
-        <small>Energy is low</small>
-      </div>
-
-
-      <div class="floating-card card-three">
-        Habit
-        <small>Same cue, same response</small>
-      </div>
-
-
-      <div class="floating-card card-four">
-        Emotion
-        <small>Comfort or reward</small>
-      </div>
-
-    </div>
-
-  </div>
-
-</header>
-
-
-
-<!-- TRUST -->
-
-<div class="trust">
-
-  <div class="container trust-content">
-
-    Science-informed education
-    &nbsp; • &nbsp;
-    Practical tools
-    &nbsp; • &nbsp;
-    No guilt
-    &nbsp; • &nbsp;
-    No restrictive dieting
-
-  </div>
-
-</div>
-
-
-
-<!-- PROBLEM -->
-
-<section class="problem">
-
-  <div class="container">
-
-
-    <div class="section-heading">
-
-      <div class="eyebrow">
-        THE PROBLEM
-      </div>
-
-      <h2>
-        Cravings can be connected to what's happening around you.
-      </h2>
-
-      <p>
-        Understanding the pattern can be more useful than simply trying
-        to fight the craving.
-      </p>
-
-    </div>
-
-
-    <div class="problem-grid">
-
-
-      <div class="problem-card">
-
-        <strong>
-          Stress
-        </strong>
-
-        <p>
-          You reach for something sweet when the day feels overwhelming.
-        </p>
-
-      </div>
-
-
-      <div class="problem-card">
-
-        <strong>
-          Tiredness
-        </strong>
-
-        <p>
-          Late nights and low energy can change what sounds appealing.
-        </p>
-
-      </div>
-
-
-      <div class="problem-card">
-
-        <strong>
-          Boredom
-        </strong>
-
-        <p>
-          Sometimes the craving is connected to wanting stimulation
-          or a break.
-        </p>
-
-      </div>
-
-
-      <div class="problem-card">
-
-        <strong>
-          Routine
-        </strong>
-
-        <p>
-          A familiar time, place, or activity can become part of the pattern.
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- APPROACH -->
-
-<section class="approach" id="approach">
-
-  <div class="container">
-
-
-    <div class="section-heading">
-
-      <div class="eyebrow">
-        THE NOCTRA APPROACH
-      </div>
-
-      <h2>
-        Understand first. Change follows.
-      </h2>
-
-      <p>
-        Noctra focuses on awareness and practical behavior change rather
-        than restriction, guilt, or relying on willpower alone.
-      </p>
-
-    </div>
-
-
-    <div class="steps">
-
-
-      <div class="step">
-
-        <div class="step-number">
-          01 — UNDERSTAND
-        </div>
-
-        <h3>
-          Learn what's happening.
-        </h3>
-
-        <p>
-          Discover how stress, fatigue, emotions, habits, routines,
-          environment, and other factors can influence cravings.
-        </p>
-
-      </div>
-
-
-      <div class="step">
-
-        <div class="step-number">
-          02 — RECOGNIZE
-        </div>
-
-        <h3>
-          Spot your patterns.
-        </h3>
-
-        <p>
-          Notice when cravings appear, what happened beforehand,
-          and what you may actually be looking for.
-        </p>
-
-      </div>
-
-
-      <div class="step">
-
-        <div class="step-number">
-          03 — RESPOND
-        </div>
-
-        <h3>
-          Try something different.
-        </h3>
-
-        <p>
-          Use small, realistic actions that help you respond to
-          cravings more intentionally.
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- FREE RESET -->
-
-<section class="reset" id="reset">
-
-  <div class="container reset-grid">
-
-
-    <div>
-
-      <div class="eyebrow">
-        START FREE
-      </div>
-
-      <h2>
-        Meet the Noctra Craving Reset.
-      </h2>
-
-      <p>
-        A simple daily tool designed to help you notice your cravings,
-        understand your triggers, and take small actions that build
-        awareness over time.
-      </p>
-
-
-      <ul class="reset-list">
-
-        <li>
-          Daily craving check-ins
-        </li>
-
-        <li>
-          Simple trigger awareness
-        </li>
-
-        <li>
-          Short practical actions
-        </li>
-
-        <li>
-          No dieting or calorie tracking
-        </li>
-
-      </ul>
-
-    </div>
-
-
-
-    <!-- FORM -->
-
-    <div class="form-card">
-
-      <h3>
-        Get the free reset
-      </h3>
-
-      <p>
-        Tell us a little about yourself and your cravings.
-      </p>
-
-
-      <form
-        action="https://api.web3forms.com/submit"
-        method="POST"
-      >
-
-
-        <input
-          type="hidden"
-          name="access_key"
-          value="224e9d2a-50c4-494b-82cc-db0da823d5a5"
-        >
-
-
-        <input
-          type="hidden"
-          name="subject"
-          value="New Noctra Craving Reset Request"
-        >
-
-
-        <input
-          type="hidden"
-          name="source"
-          value="Noctra Wellness Website"
-        >
-
-
-        <input
-          type="hidden"
-          name="resource"
-          value="Noctra Craving Reset"
-        >
-
-
-        <div class="form-group">
-
-          <label>
-            Name
-          </label>
-
-          <input
-            type="text"
-            name="name"
-            placeholder="Your name"
-            required
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            Email
-          </label>
-
-          <input
-            type="email"
-            name="email"
-            placeholder="Email address"
-            required
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            Phone number
-          </label>
-
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Phone number"
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            Tell us about your cravings
-          </label>
-
-          <textarea
-            name="craving"
-            placeholder="When do you usually get cravings? What do you tend to crave?"
-            required
-          ></textarea>
-
-        </div>
-
-
-        <button
-          type="submit"
-          class="form-button"
-        >
-          Get My Free Reset
-        </button>
-
-
-        <p class="privacy">
-          Your information is used to provide Noctra Wellness resources.
-          Noctra Wellness does not provide medical advice.
-        </p>
-
-
-      </form>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- WHY NOCTRA -->
-
-<section class="why" id="why">
-
-  <div class="container">
-
-
-    <div class="section-heading">
-
-      <div class="eyebrow">
-        WHY NOCTRA
-      </div>
-
-      <h2>
-        A different way to think about cravings.
-      </h2>
-
-      <p>
-        Noctra isn't another diet plan. It's an education-first approach
-        to understanding the patterns behind cravings.
-      </p>
-
-    </div>
-
-
-    <div class="why-grid">
-
-
-      <div class="why-card">
-
-        <h3>
-          Science-informed
-        </h3>
-
-        <p>
-          We translate relevant research and behavioral concepts into
-          language that makes sense in everyday life.
-        </p>
-
-      </div>
-
-
-      <div class="why-card">
-
-        <h3>
-          Practical
-        </h3>
-
-        <p>
-          Information is useful only when you can do something with it.
-          Noctra focuses on small, realistic actions.
-        </p>
-
-      </div>
-
-
-      <div class="why-card">
-
-        <h3>
-          Non-judgmental
-        </h3>
-
-        <p>
-          No guilt. No shame. No "just have more willpower."
-          The goal is understanding, awareness, and progress.
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- CONTENT -->
-
-<section class="content">
-
-  <div class="container">
-
-
-    <div class="section-heading">
-
-      <div class="eyebrow">
-        EXPLORE CRAVINGS
-      </div>
-
-      <h2>
-        Start with the moments you recognize.
-      </h2>
-
-      <p>
-        Everyday situations can tell you a lot about your craving patterns.
-      </p>
-
-    </div>
-
-
-    <div class="content-grid">
-
-
-      <article class="article">
-
-        <div class="article-tag">
-          Nighttime
-        </div>
-
-        <h3>
-          Why do I want sugar at night?
-        </h3>
-
-        <p>
-          When the day finally gets quiet, cravings can feel stronger.
-          Explore what tiredness, routines, stress, and reward can have
-          to do with it.
-        </p>
-
-      </article>
-
-
-      <article class="article">
-
-        <div class="article-tag">
-          Stress
-        </div>
-
-        <h3>
-          Why stress can change what you crave.
-        </h3>
-
-        <p>
-          A stressful day can influence eating patterns in ways that have
-          little to do with physical hunger.
-        </p>
-
-      </article>
-
-
-      <article class="article">
-
-        <div class="article-tag">
-          Boredom
-        </div>
-
-        <h3>
-          Is it hunger—or do you need a break?
-        </h3>
-
-        <p>
-          Sometimes the context around a craving is just as important
-          as the food you're thinking about.
-        </p>
-
-      </article>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- FINAL CTA -->
-
-<section class="final">
-
-  <div class="container">
-
-    <div class="eyebrow">
-      NOCTRA WELLNESS
-    </div>
-
-    <h2>
-      Your cravings are<br>
-      worth understanding.
-    </h2>
-
-    <p>
-      Start learning what may be behind your cravings and discover
-      practical ways to respond differently.
-    </p>
-
-    <a href="#reset" class="primary-button">
-      Get the Free Reset
-    </a>
-
-  </div>
-
-</section>
-
-
-
-<!-- FOOTER -->
-
-<footer>
-
-  <div class="container">
-
-
-    <div class="footer-top">
-
-
-      <div>
-
-        <div class="footer-logo">
-
-          <div class="footer-logo-symbol"></div>
-
-          <span>
-            NOCTRA
-          </span>
-
-        </div>
-
-
-        <div class="footer-description">
-
-          Science-informed wellness education for understanding
-          cravings and building healthier patterns.
-
-        </div>
-
-      </div>
-
-
-      <div class="footer-links">
-
-        <a href="#approach">
-          How It Works
-        </a>
-
-        <a href="#why">
-          Why Noctra
-        </a>
-
-        <a href="#reset">
-          Free Reset
-        </a>
-
-      </div>
-
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-      © 2026 Noctra Wellness. All rights reserved.
-
-      <br><br>
-
-      Noctra Wellness shares general information for educational and awareness purposes. Content is intended to complement, rather than replace, personalized guidance from a qualified professional.
-
-    </div>
-
-
-  </div>
-
-</footer>
-
-
-</body>
-</html>
+            <div class="eyebrow
