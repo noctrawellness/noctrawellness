@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Noctra Wellness — The Science Behind Your Cravings</title>
+
+  <meta
+    name="description"
+    content="Understand what's behind your sugar cravings and get a simple daily tool to help you recognize your patterns."
+  >
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Caveat:wght@400;500;600;700&family=Figtree:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    :root {
+      --paper:#F7F1E5;
+      --ink:#2B2433;
+      --yellow:#FFE27A;
+      --coral:#FF8A73;
+      --mint:#B8EAD3;
+      --lav:#CFC3F5;
+      --blue:#BFE0F5;
+    }
+
+    html {
+      scroll-behavior:smooth;
+    }
+
+    body {
+      background:var(--paper);
+      color:var(--ink);
+      font-family:'Figtree', sans-serif;
+      overflow-x:hidden;
+    }
+
+    .display {
+      font-family:'Bricolage Grotesque', sans-serif;
+    }
+
+    .hand {
+      font-family:'Caveat', cursive;
+    }
+
+    .card {
+      border:2px solid var(--ink);
+      border-radius:24px;
+      box-shadow:6px 6px 0 var(--ink);
+    }
+
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:2px solid var(--ink);
+      border-radius:999px;
+      padding:14px 22px;
+      font-weight:700;
+      transition:all .2s ease;
+      box-shadow:4px 4px 0 var(--ink);
+      cursor:pointer;
+    }
+
+    .btn:hover {
+      transform:translate(2px,2px);
+      box-shadow:2px 2px 0 var(--ink);
+    }
+
+    .note {
+      border:2px solid var(--ink);
+      padding:18px;
+      border-radius:8px;
+      box-shadow:4px 4px 0 rgba(43,36,51,.2);
+    }
+
+    .paper-noise {
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.055'/%3E%3C/svg%3E");
+    }
+
+    .rise {
+      animation:rise .7s ease both;
+    }
+
+    .bob {
+      animation:bob 4s ease-in-out infinite;
+    }
+
+    @keyframes rise {
+      from {
+        opacity:0;
+        transform:translateY(20px);
+      }
+
+      to {
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes bob {
+      0%,100% {
+        transform:translateY(0) rotate(-2deg);
+      }
+
+      50% {
+        transform:translateY(-8px) rotate(2deg);
+      }
+    }
+
+    .reveal {
+      opacity:0;
+      transform:translateY(20px);
+      transition:all .7s ease;
+    }
+
+    .reveal.show {
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    input {
+      font-family:'Figtree', sans-serif;
+    }
+
+    input:focus {
+      outline:none;
+      box-shadow:0 0 0 4px var(--yellow);
+    }
+
+  </style>
+</head>
+
+
+<body class="paper-noise">
+
+
+<!-- ========================================================= -->
+<!-- NAVIGATION -->
+<!-- ========================================================= -->
+
+<nav class="w-full px-6 md:px-10 py-5">
+
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+
+    <a href="#" class="flex items-center gap-3">
+
+      <div
+        class="w-10 h-10 rounded-full bg-[var(--yellow)] border-2 border-[var(--ink)] flex items-center justify-center font-bold"
+      >
+        N
+      </div>
+
+      <span class="display font-bold text-xl">
+        Noctra Wellness
+      </span>
+
+    </a>
+
+
+    <a href="#request" class="btn bg-[var(--yellow)] text-sm">
+      GET THE FREE RESET
+    </a>
+
+  </div>
+
+</nav>
+
+
+
+<!-- ========================================================= -->
+<!-- HERO -->
+<!-- ========================================================= -->
+
+<section class="px-6 md:px-10 pt-12 pb-24">
+
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+
+
+    <div class="rise">
+
+      <p class="font-bold tracking-widest text-sm mb-5">
+        NOCTRA WELLNESS
+      </p>
+
+
+      <h1 class="display text-5xl md:text-7xl font-bold leading-[.95]">
+
+        Your cravings
+        <span class="relative inline-block">
+
+          aren't random.
+
+          <span
+            class="absolute left-0 bottom-1 w-full h-3 bg-[var(--coral)] -z-10 rotate-[-2deg]"
+          ></span>
+
+        </span>
+
+      </h1>
+
+
+      <p class="text-xl md:text-2xl mt-7 max-w-xl leading-relaxed">
+
+        Understand what's behind your sugar cravings—and learn practical ways
+        to respond differently.
+
+      </p>
+
+
+      <div class="flex flex-wrap gap-3 mt-7">
+
+        <span class="note bg-[var(--yellow)]">
+          Stress
+        </span>
+
+        <span class="note bg-[var(--coral)]">
+          Tiredness
+        </span>
+
+        <span class="note bg-[var(--mint)]">
+          Boredom
+        </span>
+
+        <span class="note bg-[var(--lav)]">
+          Emotions
+        </span>
+
+        <span class="note bg-[var(--blue)]">
+          Habits
+        </span>
+
+        <span class="note bg-white">
+          Nighttime
+        </span>
+
+      </div>
+
+
+      <p class="mt-7 max-w-xl text-lg leading-relaxed">
+
+        Your cravings can be influenced by more than hunger.
+        Noctra helps you understand the patterns behind them so you can make
+        more intentional choices.
+
+      </p>
+
+
+      <div class="flex flex-wrap gap-4 mt-8">
+
+        <a
+          href="#request"
+          class="btn bg-[var(--ink)] text-[var(--paper)]"
+        >
+          GET THE FREE RESET
+        </a>
+
+        <a
+          href="#how"
+          class="font-bold flex items-center"
+        >
+          Learn how Noctra works ↓
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- HERO VISUAL -->
+
+    <div class="relative min-h-[430px] flex items-center justify-center">
+
+      <div
+        class="absolute w-64 h-64 md:w-80 md:h-80 rounded-full bg-[var(--yellow)] border-2 border-[var(--ink)]"
+      ></div>
+
+
+      <div class="relative z-10 text-center">
+
+        <div class="text-8xl md:text-9xl bob">
+          🧠
+        </div>
+
+
+        <div
+          class="note bg-[var(--coral)] absolute -top-5 -right-24 rotate-6"
+        >
+
+          <span class="hand text-3xl">
+            Why am I craving this?
+          </span>
+
+        </div>
+
+
+        <div
+          class="note bg-[var(--mint)] absolute -bottom-12 -left-20 -rotate-6"
+        >
+
+          <span class="hand text-3xl">
+            There's a pattern.
+          </span>
+
+        </div>
+
+
+        <div
+          class="note bg-white absolute top-28 -left-28 rotate-3"
+        >
+          🍪
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- PROBLEM -->
+<!-- ========================================================= -->
+
+<section class="px-6 md:px-10 py-24 bg-white/50">
+
+  <div class="max-w-7xl mx-auto">
+
+
+    <div class="max-w-3xl reveal">
+
+      <p class="font-bold tracking-widest text-sm">
+        THE QUESTION
+      </p>
+
+
+      <h2 class="display text-4xl md:text-6xl font-bold mt-3">
+
+        Ever wonder,
+
+        <span class="hand text-5xl md:text-7xl">
+          “Why do I want sugar right now?”
+        </span>
+
+      </h2>
+
+
+      <p class="text-xl mt-6 leading-relaxed">
+
+        Sometimes the craving shows up when you're stressed.
+        Sometimes you're exhausted.
+        Sometimes you're bored—or it's simply become part of the routine.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="grid md:grid-cols-4 gap-6 mt-12">
+
+
+      <div class="card bg-[var(--coral)] p-7 reveal">
+
+        <div class="text-4xl">
+          😣
+        </div>
+
+        <h3 class="display text-2xl font-bold mt-5">
+          STRESSED
+        </h3>
+
+        <p class="mt-3">
+          A stressful day can make a familiar reward feel especially appealing.
+        </p>
+
+      </div>
+
+
+
+      <div class="card bg-[var(--blue)] p-7 reveal">
+
+        <div class="text-4xl">
+          🥱
+        </div>
+
+        <h3 class="display text-2xl font-bold mt-5">
+          TIRED
+        </h3>
+
+        <p class="mt-3">
+          When you're running low on energy, quick and familiar foods can become tempting.
+        </p>
+
+      </div>
+
+
+
+      <div class="card bg-[var(--lav)] p-7 reveal">
+
+        <div class="text-4xl">
+          😐
+        </div>
+
+        <h3 class="display text-2xl font-bold mt-5">
+          BORED
+        </h3>
+
+        <p class="mt-3">
+          Sometimes eating becomes something to do rather than something your body needs.
+        </p>
+
+      </div>
+
+
+
+      <div class="card bg-[var(--yellow)] p-7 reveal">
+
+        <div class="text-4xl">
+          🔁
+        </div>
+
+        <h3 class="display text-2xl font-bold mt-5">
+          HABIT
+        </h3>
+
+        <p class="mt-3">
+          Repeated routines can make a craving feel automatic.
+        </p>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="text-center mt-14">
+
+      <p class="hand text-4xl">
+        The first step isn't more willpower.
+      </p>
+
+      <p class="text-xl font-bold mt-2">
+        It's understanding the pattern.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- HOW NOCTRA WORKS -->
+<!-- ========================================================= -->
+
+<section id="how" class="px-6 md:px-10 py-24">
+
+  <div class="max-w-7xl mx-auto">
+
+
+    <div class="text-center max-w-3xl mx-auto reveal">
+
+      <p class="font-bold tracking-widest text-sm">
+        THE NOCTRA APPROACH
+      </p>
+
+
+      <h2 class="display text-4xl md:text-6xl font-bold mt-3">
+
+        We focus on the
+
+        <span class="hand text-5xl md:text-7xl">
+          WHY
+        </span>
+
+        behind the craving.
+
+      </h2>
+
+    </div>
+
+
+
+    <div class="grid md:grid-cols-3 gap-8 mt-14">
+
+
+      <div class="card bg-[var(--yellow)] p-8 reveal">
+
+        <div class="text-5xl">
+          🔎
+        </div>
+
+        <h3 class="display text-3xl font-bold mt-5">
+          UNDERSTAND
+        </h3>
+
+        <p class="mt-4 text-lg leading-relaxed">
+
+          Learn how stress, tiredness, emotions, routines, environment,
+          and habits can influence cravings.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="card bg-[var(--mint)] p-8 reveal">
+
+        <div class="text-5xl">
+          🧩
+        </div>
+
+        <h3 class="display text-3xl font-bold mt-5">
+          RECOGNIZE
+        </h3>
+
+        <p class="mt-4 text-lg leading-relaxed">
+
+          Notice the situations and patterns that tend to appear before
+          your cravings.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="card bg-[var(--lav)] p-8 reveal">
+
+        <div class="text-5xl">
+          🌱
+        </div>
+
+        <h3 class="display text-3xl font-bold mt-5">
+          RESPOND
+        </h3>
+
+        <p class="mt-4 text-lg leading-relaxed">
+
+          Use practical strategies to create more intentional responses
+          instead of relying on restriction.
+
+        </p>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="text-center mt-14">
+
+      <p class="text-lg">
+
+        No extreme rules.
+        <strong>No guilt.</strong>
+        No “just use more willpower.”
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- NOCTRA RESET -->
+<!-- ========================================================= -->
+
+<section
+  id="request"
+  class="px-6 md:px-10 py-24 bg-[var(--ink)] text-[var(--paper)]"
+>
+
+  <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+
+
+    <!-- LEFT -->
+
+    <div class="reveal">
+
+      <p class="font-bold tracking-widest text-sm">
+        START HERE
+      </p>
+
+
+      <h2 class="display text-4xl md:text-6xl font-bold mt-4">
+
+        Meet the
+
+        <span class="hand text-5xl md:text-7xl text-[var(--yellow)]">
+          Noctra Craving Reset
+        </span>
+
+      </h2>
+
+
+      <p class="text-xl mt-6 leading-relaxed opacity-90">
+
+        Forget another guide you'll download and never open.
+
+        The Noctra Craving Reset is designed to help you build awareness
+        through short, practical daily actions.
+
+      </p>
+
+
+      <div class="mt-8 space-y-5">
+
+
+        <div class="flex gap-4 items-start">
+
+          <div class="text-2xl">
+            🧠
+          </div>
+
+          <div>
+
+            <strong>
+              Understand your patterns
+            </strong>
+
+            <p class="opacity-80 mt-1">
+              Learn what tends to happen before your cravings.
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="flex gap-4 items-start">
+
+          <div class="text-2xl">
+            🔔
+          </div>
+
+          <div>
+
+            <strong>
+              Get daily prompts
+            </strong>
+
+            <p class="opacity-80 mt-1">
+              Small reminders designed to keep awareness going.
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="flex gap-4 items-start">
+
+          <div class="text-2xl">
+            🌱
+          </div>
+
+          <div>
+
+            <strong>
+              Take one small action
+            </strong>
+
+            <p class="opacity-80 mt-1">
+              Focus on realistic changes instead of extreme rules.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="note bg-[var(--yellow)] text-[var(--ink)] mt-10 rotate-[-2deg]">
+
+        <span class="hand text-3xl">
+
+          “What happened right before I wanted sugar?”
+
+        </span>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- FORM -->
+
+    <div class="card bg-[var(--paper)] text-[var(--ink)] p-8 md:p-10 reveal">
+
+
+      <div class="text-center mb-7">
+
+        <div class="text-6xl mb-4">
+          📲
+        </div>
+
+
+        <h3 class="display text-3xl font-bold">
+          Get the free reset
+        </h3>
+
+
+        <p class="mt-3 opacity-80">
+
+          Enter your information below and request your Noctra Craving Reset.
+
+        </p>
+
+      </div>
+
+
+
+      <!-- WEB3FORMS -->
+
+      <form
+        action="https://api.web3forms.com/submit"
+        method="POST"
+        class="space-y-5"
+      >
+
+        <!-- YOUR WEB3FORMS KEY -->
+
+        <input
+          type="hidden"
+          name="access_key"
+          value="224e9d2a-50c4-494b-82cc-db0da823d5a5"
+        >
+
+
+        <!-- EMAIL SUBJECT -->
+
+        <input
+          type="hidden"
+          name="subject"
+          value="New Noctra Craving Reset Request"
+        >
+
+
+        <!-- SOURCE -->
+
+        <input
+          type="hidden"
+          name="source"
+          value="Noctra Wellness Website"
+        >
+
+
+        <!-- RESOURCE -->
+
+        <input
+          type="hidden"
+          name="resource"
+          value="Noctra Craving Reset"
+        >
+
+
+
+        <div>
+
+          <label
+            for="name"
+            class="font-bold block mb-2"
+          >
+            First name
+          </label>
+
+
+          <input
+            id="name"
+            type="text"
+            name="name"
+            placeholder="Your first name"
+            required
+            class="w-full px-5 py-4 rounded-xl border-2 border-[var(--ink)] bg-white"
+          >
+
+        </div>
+
+
+
+        <div>
+
+          <label
+            for="email"
+            class="font-bold block mb-2"
+          >
+            Email address
+          </label>
+
+
+          <input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="you@example.com"
+            required
+            class="w-full px-5 py-4 rounded-xl border-2 border-[var(--ink)] bg-white"
+          >
+
+        </div>
+
+
+
+        <button
+          type="submit"
+          class="btn w-full bg-[var(--yellow)] text-[var(--ink)]"
+        >
+
+          REQUEST MY FREE RESET
+
+        </button>
+
+
+        <p class="text-sm text-center opacity-70">
+
+          No spam. Just practical, science-informed craving education.
+
+        </p>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- WHY NOCTRA -->
+<!-- ========================================================= -->
+
+<section class="px-6 md:px-10 py-24">
+
+  <div class="max-w-7xl mx-auto">
+
+
+    <div class="max-w-3xl reveal">
+
+      <p class="font-bold tracking-widest text-sm">
+        WHY NOCTRA
+      </p>
+
+
+      <h2 class="display text-4xl md:text-6xl font-bold mt-3">
+
+        Wellness shouldn't feel like another set of rules.
+
+      </h2>
+
+    </div>
+
+
+
+    <div class="grid md:grid-cols-3 gap-8 mt-12">
+
+
+      <div class="card bg-[var(--blue)] p-8 reveal">
+
+        <div class="text-5xl">
+          🧠
+        </div>
+
+        <h3 class="display text-2xl font-bold mt-5">
+          Science-informed
+        </h3>
+
+        <p class="mt-4">
+
+          We translate useful wellness and behavioral science
+          into everyday language.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="card bg-[var(--yellow)] p-8 reveal">
+
+        <div class="text-5xl">
+          🛠️
+        </div>
+
+        <h3 class="display text-2xl font-bold mt-5">
+          Practical
+        </h3>
+
+        <p class="mt-4">
+
+          Understanding the problem matters—but so does having
+          something realistic to try.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="card bg-[var(--mint)] p-8 reveal">
+
+        <div class="text-5xl">
+          🤝
+        </div>
+
+        <h3 class="display text-2xl font-bold mt-5">
+          Non-judgmental
+        </h3>
+
+        <p class="mt-4">
+
+          No shame, guilt, extreme rules, or unrealistic promises.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- CONTENT PREVIEW -->
+<!-- ========================================================= -->
+
+<section class="px-6 md:px-10 py-24 bg-white/50">
+
+  <div class="max-w-7xl mx-auto">
+
+
+    <div class="text-center reveal">
+
+      <p class="font-bold tracking-widest text-sm">
+        FROM NOCTRA
+      </p>
+
+
+      <h2 class="display text-4xl md:text-6xl font-bold mt-3">
+
+        Learn something about your cravings.
+
+      </h2>
+
+    </div>
+
+
+
+    <div class="grid md:grid-cols-3 gap-7 mt-12">
+
+
+      <div class="card bg-[var(--yellow)] p-7 reveal">
+
+        <p class="font-bold text-sm">
+          CRAVING PATTERNS
+        </p>
+
+
+        <h3 class="display text-3xl font-bold mt-5">
+
+          Why do I crave sugar at night?
+
+        </h3>
+
+
+        <p class="mt-4">
+
+          Explore how tiredness, routines, stress, and reward can overlap
+          at the end of the day.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="card bg-[var(--coral)] p-7 reveal">
+
+        <p class="font-bold text-sm">
+          STRESS
+        </p>
+
+
+        <h3 class="display text-3xl font-bold mt-5">
+
+          Why does stress make me want sweets?
+
+        </h3>
+
+
+        <p class="mt-4">
+
+          Learn why familiar foods can become more appealing during
+          stressful moments.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="card bg-[var(--lav)] p-7 reveal">
+
+        <p class="font-bold text-sm">
+          BOREDOM
+        </p>
+
+
+        <h3 class="display text-3xl font-bold mt-5">
+
+          Can boredom trigger a craving?
+
+        </h3>
+
+
+        <p class="mt-4">
+
+          Understand how eating can sometimes become connected with
+          stimulation, comfort, or routine.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- FINAL CTA -->
+<!-- ========================================================= -->
+
+<section class="px-6 md:px-10 py-28">
+
+  <div class="max-w-4xl mx-auto text-center reveal">
+
+
+    <div class="text-6xl mb-6">
+      🍪 → 🧠
+    </div>
+
+
+    <h2 class="display text-5xl md:text-7xl font-bold leading-tight">
+
+      Your cravings are worth understanding.
+
+    </h2>
+
+
+    <p class="text-xl md:text-2xl mt-7 leading-relaxed">
+
+      Start learning what's behind them—and take small,
+      practical steps toward changing the patterns that keep repeating.
+
+    </p>
+
+
+    <a
+      href="#request"
+      class="btn bg-[var(--yellow)] mt-9"
+    >
+      GET THE FREE NOCTRA RESET
+    </a>
+
+
+    <p class="mt-5 opacity-70">
+
+      No dieting. No judgment. Just a better understanding of your cravings.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- FOOTER -->
+<!-- ========================================================= -->
+
+<footer class="border-t-2 border-[var(--ink)] px-6 md:px-10 py-12">
+
+  <div class="max-w-7xl mx-auto">
+
+
+    <div class="flex flex-col md:flex-row justify-between gap-8">
+
+
+      <div>
+
+        <div class="display text-2xl font-bold">
+          Noctra Wellness
+        </div>
+
+
+        <p class="hand text-2xl mt-2">
+          The science behind your cravings.
+        </p>
+
+      </div>
+
+
+
+      <div class="flex flex-wrap gap-6 font-bold">
+
+        <a href="#how" class="hover:underline">
+          About
+        </a>
+
+        <a href="#request" class="hover:underline">
+          Noctra Reset
+        </a>
+
+        <a href="#request" class="hover:underline">
+          Get Started
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="mt-10 pt-6 border-t border-[var(--ink)]/30 text-sm opacity-70">
+
+      <p>
+
+        Noctra Wellness provides educational content and is not a substitute
+        for professional medical advice.
+
+      </p>
+
+
+      <p class="mt-3">
+
+        © 2026 Noctra Wellness. All rights reserved.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<!-- ========================================================= -->
+<!-- SCROLL ANIMATIONS -->
+<!-- ========================================================= -->
+
+<script>
+
+  const observer = new IntersectionObserver(
+
+    entries => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.classList.add('show');
+
+        }
+
+      });
+
+    },
+
+    {
+      threshold:0.12
+    }
+
+  );
+
+
+  document
+    .querySelectorAll('.reveal')
+    .forEach(el => observer.observe(el));
+
+</script>
+
+
+</body>
+</html>
