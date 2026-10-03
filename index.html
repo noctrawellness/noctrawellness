@@ -193,6 +193,28 @@ h3{font-size:1.2rem}
 .legal-content .btn{margin-top:15px}
 @media(max-width:950px){.hero-grid,.product-grid,.two,.request-section .two{grid-template-columns:1fr;gap:40px}.product-visual,.product-preview,.reflection-card{max-width:650px;width:100%;margin:0 auto}.nav-links{gap:17px}}
 @media(max-width:700px){.container{width:min(100% - 32px,540px)}.section{padding:72px 0}.nav-inner{min-height:70px}.nav-links>a:not(.btn){display:none}.nav-links .btn{min-height:40px;padding:9px 14px;font-size:.79rem}.hero{padding:54px 0 65px}.hero h1{font-size:clamp(2.6rem,11vw,4.2rem)}.hero-actions{align-items:stretch}.hero-actions .btn{flex:1;padding:13px 15px;font-size:.87rem}.trust-grid,.cards,.steps{grid-template-columns:1fr}.trust-item{justify-content:flex-start;text-align:left}.card{min-height:0}.product-preview{padding:12px}.preview-body{padding:18px}.free-card{grid-template-columns:1fr;padding:29px}.free-badge{width:95px;height:95px}.form-card,.reflection-card,.legal-content{padding:23px}.form-row{grid-template-columns:1fr;gap:0}.footer-top,.footer-bottom{flex-direction:column;gap:20px}.scene{padding:12px}.mini-app{width:76%;min-width:0;padding:11px}.note{right:10px;bottom:10px;width:43%;padding:10px}.note p{font-size:.6rem}.floating-note{left:-5px;bottom:25px;max-width:125px;padding:11px;font-size:.85rem}}
+.demo{background:#fff;border-block:1px solid var(--line)}
+.demo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;align-items:stretch}
+.demo-step{display:flex;flex-direction:column;gap:14px}
+.demo-label{display:flex;align-items:center;gap:10px;font:800 .95rem "Manrope",sans-serif;color:var(--green)}
+.demo-label b{display:grid;place-items:center;width:30px;height:30px;border-radius:10px;background:var(--green);color:#fff;font-size:.85rem}
+.win{flex:1;overflow:hidden;border:1px solid #dfe5dc;border-radius:18px;background:linear-gradient(160deg,#e3ede4,#efece0);box-shadow:var(--shadow)}
+.win-bar{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;background:rgba(255,255,255,.6);color:#607067;font-size:.7rem;font-weight:600}
+.win-body{padding:18px;min-height:260px;display:flex;flex-direction:column;gap:12px}
+.toast{margin-top:auto;padding:15px;border:1px solid #e7e7dc;border-radius:14px;background:#fffdf7;box-shadow:0 12px 28px rgba(28,48,34,.14)}
+.toast strong{display:block;margin:6px 0 4px;font-size:.92rem}
+.toast p{font-size:.8rem;line-height:1.5}
+.btn-sm{display:inline-block;margin-top:10px;padding:7px 14px;border-radius:999px;background:var(--green);color:#fff;font-size:.74rem;font-weight:700}
+.sheet{padding:16px;border-radius:14px;background:#fffefa;box-shadow:0 10px 25px rgba(28,48,34,.10)}
+.sheet h4{margin:4px 0 12px;font:800 1rem "Manrope",sans-serif;letter-spacing:-.03em}
+.pill{display:inline-block;margin:0 6px 7px 0;padding:7px 12px;border:1px solid #d8e2d6;border-radius:999px;background:#fff;color:#526354;font-size:.76rem}
+.pill.on{background:var(--green);border-color:var(--green);color:#fff}
+.insight{padding:14px;border-left:3px solid #8ca58c;border-radius:4px;background:#f0f3e9;color:#4f6151;font:.92rem/1.55 "Playfair Display",serif}
+.tick{display:flex;align-items:center;gap:8px;font-size:.78rem;color:#4c5e51;font-weight:600}
+.tick i{display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--gs);color:var(--green);font-style:normal;font-size:.65rem}
+.demo-cap{font-size:.86rem}
+.demo-note{margin-top:30px;text-align:center;font-size:.78rem}
+@media(max-width:950px){.demo-grid{grid-template-columns:1fr}}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition-duration:.01ms!important}}
 </style>
@@ -200,7 +222,7 @@ h3{font-size:1.2rem}
 <body>
 <header class="navbar"><div class="container nav-inner">
 <a href="#home" class="brand" aria-label="Noctra Wellness home"><span class="brand-mark">N</span><span>Noctra Wellness<small>THE SCIENCE BEHIND YOUR CRAVINGS</small></span></a>
-<nav class="nav-links" aria-label="Main navigation"><a href="#approach">Our approach</a><a href="#how-it-works">How it works</a><a href="#faq">FAQs</a><a href="#request" class="btn">Get the free tool <span class="arrow">→</span></a></nav>
+<nav class="nav-links" aria-label="Main navigation"><a href="#approach">Our approach</a><a href="#in-action">See it</a><a href="#how-it-works">How it works</a><a href="#faq">FAQs</a><a href="#request" class="btn">Get the free tool <span class="arrow">→</span></a></nav>
 </div></header>
 
 <main id="main-content">
@@ -267,9 +289,31 @@ h3{font-size:1.2rem}
 <h3>What is happening right now?</h3>
 <p>Before reacting automatically, give yourself a moment to notice what's going on around you.</p>
 <div class="question-box"><strong>What might be contributing to this moment?</strong><div class="choices"><span>Feeling tired</span><span>Feeling stressed</span><span>It's part of my routine</span><span>I'm not sure yet</span></div></div>
-<p class="footnote">Illustrative example of a check-in experience. This preview is not a screenshot of the actual application.</p>
 </div></div>
 <p class="caption">A visual illustration of the Noctra approach — pause, notice, and become more aware of possible patterns.</p>
+</div>
+</div></section>
+
+<section class="section demo" id="in-action"><div class="container">
+<div class="sh"><span class="eyebrow">See it in action</span><h2>One small check-in. A clearer picture.</h2><p>Here's how a single moment can look with the Noctra Craving Reset, from the first nudge to a bit of useful curiosity.</p></div>
+<div class="demo-grid">
+<div class="demo-step"><div class="demo-label"><b>1</b>A gentle nudge arrives</div>
+<div class="win"><div class="win-bar"><span>Noctra Craving Reset</span><span>3:10 PM</span></div><div class="win-body">
+<div class="tick"><i>✓</i>Back-to-back meetings</div><div class="tick"><i>✓</i>Focus is fading</div>
+<div class="toast"><div class="note-top"><span>N</span>NOCTRA WELLNESS</div><strong>Time for a quick check-in?</strong><p>Take a breath. Notice how you're feeling before moving on.</p><span class="btn-sm">Check in</span></div></div></div>
+<p class="demo-cap">A reminder interrupts autopilot at the moment it matters.</p></div>
+<div class="demo-step"><div class="demo-label"><b>2</b>You notice what's going on</div>
+<div class="win"><div class="win-bar"><span>Noctra Craving Reset</span><span>Check-in</span></div><div class="win-body">
+<div class="sheet"><div class="app-status">Your check-in moment</div><h4>What might be contributing right now?</h4>
+<span class="pill">Stress</span><span class="pill on">Tiredness</span><span class="pill">Boredom</span><span class="pill">Routine</span><span class="pill">Not sure yet</span></div>
+<div class="sheet"><div class="app-status">No right or wrong answer</div><p style="font-size:.8rem">Just a moment to notice. No judgement, no diet rules.</p></div></div></div>
+<p class="demo-cap">Tap what fits. It takes seconds, not a journal entry.</p></div>
+<div class="demo-step"><div class="demo-label"><b>3</b>You get curious, not critical</div>
+<div class="win"><div class="win-bar"><span>Noctra Craving Reset</span><span>Reflection</span></div><div class="win-body">
+<div class="sheet"><div class="app-status">A thought to take with you</div><h4>Afternoon + tired</h4>
+<div class="insight">Maybe this urge has more to do with the day than the snack. What else might help right now?</div></div>
+<div class="tick"><i>✓</i>Check-in complete</div></div></div>
+<p class="demo-cap">Over time, repeat moments become easier to spot and understand.</p></div>
 </div>
 </div></section>
 
@@ -345,7 +389,7 @@ h3{font-size:1.2rem}
 <label class="consent"><input type="checkbox" name="marketing_consent" value="Yes, I agree to receive optional Noctra Wellness educational emails."><span>I'd also like to receive occasional Noctra Wellness emails with educational content, updates, and resources. I can unsubscribe at any time.</span></label>
 <button type="submit" class="btn" id="submitButton">Send my request <span class="arrow">→</span></button>
 <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
-<p class="form-privacy">Currently available for Windows PCs. Submitting this form requests access; it does not automatically download the tool. Please do not include sensitive personal or medical information.</p>
+<p class="form-privacy">Submitting this form requests access; it does not automatically download the tool. Please do not include sensitive personal or medical information.</p>
 </form>
 </div>
 </div></section>
@@ -354,7 +398,7 @@ h3{font-size:1.2rem}
 <div class="sh"><span class="eyebrow">Good questions</span><h2>A few things you might be wondering.</h2><p>Here's what to know before requesting the Noctra Craving Reset.</p></div>
 <div class="faq-list">
 <details class="faq-item"><summary>What exactly is the Noctra Craving Reset?</summary><p>It's a simple tool designed to encourage brief pauses and check-ins throughout your day. Its purpose is to help you pay attention to possible circumstances and habits surrounding sugar cravings. It is an awareness tool, not a diagnostic or treatment tool.</p></details>
-<details class="faq-item"><summary>Is it a PDF, website, or app?</summary><p>It's a Windows desktop application, intended to be installed and used on a compatible Windows computer. The illustrations on this page are design previews, not screenshots of the actual application.</p></details>
+<details class="faq-item"><summary>Is it a PDF, website, or app?</summary><p>It's a Windows desktop application, intended to be installed and used on a compatible Windows computer.</p></details>
 <details class="faq-item"><summary>How do I receive it?</summary><p>Submit the request form with your name and email address. Noctra Wellness will follow up with you about access. Delivery is handled manually, so the form does not provide an instant download.</p></details>
 <details class="faq-item"><summary>Why is it free?</summary><p>We want people to experience the Noctra approach without an upfront purchase. The tool offers a practical starting point for building awareness. You can request it without agreeing to receive optional marketing emails.</p></details>
 <details class="faq-item"><summary>Will it make my sugar cravings disappear?</summary><p>No particular result can be guaranteed. Cravings can be influenced by many factors, and this tool is intended to encourage awareness rather than promise to eliminate them. Its usefulness will depend on the individual and how the tool fits into their routine.</p></details>
