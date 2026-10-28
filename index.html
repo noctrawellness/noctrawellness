@@ -462,6 +462,22 @@ try{
 const res=await fetch(requestForm.action,{method:"POST",body:new FormData(requestForm)});
 const result=await res.json();
 if(res.ok&&result.success){
+// Send a separate notification to the Noctra Telegram bot. A Telegram failure
+// must not undo a successful Web3Forms submission.
+try{
+  await fetch("https://noctra-form-notifications.dreamwellness79.workers.dev/",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({
+      name:requestForm.elements.namedItem("name").value.trim(),
+      email:requestForm.elements.namedItem("email").value.trim(),
+      phone:requestForm.elements.namedItem("phone").value.trim(),
+      craving_context:requestForm.elements.namedItem("craving_context").value.trim()
+    })
+  });
+}catch(notificationError){
+  console.error("Noctra Telegram notification could not be sent.",notificationError);
+}
 formMessage.className="form-message success";
 formMessage.textContent="Your request has been submitted. Thank you! Noctra Wellness will follow up about access to the tool. Please check your inbox for our reply.";
 requestForm.reset();formMessage.scrollIntoView({behavior:"smooth",block:"nearest"});
